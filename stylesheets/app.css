@@ -1,0 +1,483 @@
+/* line 5, ../../../../../Users/Niko/.rvm/gems/ruby-1.9.3-p385/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../Users/Niko/.rvm/gems/ruby-1.9.3-p385/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../Users/Niko/.rvm/gems/ruby-1.9.3-p385/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../Users/Niko/.rvm/gems/ruby-1.9.3-p385/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../Users/Niko/.rvm/gems/ruby-1.9.3-p385/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../Users/Niko/.rvm/gems/ruby-1.9.3-p385/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../Users/Niko/.rvm/gems/ruby-1.9.3-p385/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../Users/Niko/.rvm/gems/ruby-1.9.3-p385/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../Users/Niko/.rvm/gems/ruby-1.9.3-p385/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 88, ../scss/app.scss */
+html {
+  font-size: 62.5%;
+  width: 100%;
+}
+
+/* line 92, ../scss/app.scss */
+body {
+  background: #fff;
+  font-size: 1em;
+  width: 100%;
+  min-height: 100%;
+  color: #000;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* line 101, ../scss/app.scss */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 107, ../scss/app.scss */
+a, a:hover, a:active, a:focus, input:focus {
+  outline: 0;
+}
+
+/* line 112, ../scss/app.scss */
+header {
+  float: left;
+  background-image: url(../img/sprites/logo_text_grey.png);
+  background-size: contain;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  width: 100%;
+  background-color: #fff;
+  margin: 15px 0;
+}
+/* line 122, ../scss/app.scss */
+header nav {
+  float: left;
+  width: 50%;
+  padding: 15px 10%;
+}
+/* line 126, ../scss/app.scss */
+header nav a {
+  /*font-family: "franklin-gothic-urw-comp",sans-serif;
+  font-style: normal;
+  font-weight: 400;*/
+  font-family: "ff-enzo-web",sans-serif;
+  font-style: normal;
+  font-weight: 100;
+  text-rendering: optimizeLegibility;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #aaa;
+  font-size: 1.2em;
+  line-height: 1em;
+  position: relative;
+  float: left;
+  /* text-shadow: rgba(0, 0, 0, 0.34) 1px 1.732px 2px; */
+  padding: 4px 1em 0;
+  display: inline-block;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.14) 1px 1.732px 2px;
+  float: right;
+}
+/* line 141, ../scss/app.scss */
+header nav a span {
+  display: none;
+  position: absolute;
+  bottom: -11px;
+  height: 10px;
+  background: #0d889a;
+  width: 100%;
+}
+/* line 149, ../scss/app.scss */
+header nav a i {
+  background-image: url(../img/sprites/navi_ball.png);
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: none;
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  height: 4px;
+  width: 4px;
+  margin-top: -2px;
+}
+/* line 163, ../scss/app.scss */
+header nav.main {
+  padding-left: 0;
+}
+/* line 166, ../scss/app.scss */
+header nav.contact {
+  float: left;
+  width: 50%;
+  padding-right: 0;
+}
+/* line 170, ../scss/app.scss */
+header nav.contact a {
+  float: left;
+}
+
+/* line 179, ../scss/app.scss */
+section {
+  width: 100%;
+}
+/* line 182, ../scss/app.scss */
+section h1 {
+  font-family: "leander-script-pro",cursive;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 8em;
+  color: #fff;
+  padding: 40px;
+  text-shadow: rgba(0, 0, 0, 0.6) 0px 0px 1px;
+}
+/* line 190, ../scss/app.scss */
+section .imageContainer {
+  width: 48%;
+  float: left;
+  padding: 1px;
+  position: relative;
+  margin: 0 1% 8px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 7px 14px;
+  background: #f7f7f7;
+  margin-bottom: 14px;
+}
+/* line 199, ../scss/app.scss */
+section .imageContainer .img {
+  display: block;
+  position: relative;
+  float: left;
+  width: 100%;
+  z-index: 10;
+}
+/* line 205, ../scss/app.scss */
+section .imageContainer .img .ratioEnforcer {
+  content: '';
+  padding-top: 66.640625%;
+  width: 100%;
+  display: block;
+}
+/* line 211, ../scss/app.scss */
+section .imageContainer .img img {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+/* line 219, ../scss/app.scss */
+section .imageContainer .img .innerShadow {
+  z-index: 20;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+}
+/* line 228, ../scss/app.scss */
+section .imageContainer .img .hashtags {
+  width: 100%;
+  position: absolute;
+  bottom: -32px;
+  right: 0;
+  z-index: 10;
+}
+/* line 235, ../scss/app.scss */
+section .imageContainer .img .hashtags span {
+  background-image: url(../img/sprites/curles1.png);
+  background-size: contain;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 60px;
+  display: none;
+}
+/* line 243, ../scss/app.scss */
+section .imageContainer .img .hashtags span:nth-child(1) {
+  background-image: url(../img/sprites/curles2.png);
+}
+/* line 247, ../scss/app.scss */
+section .imageContainer .img .hashtags ul {
+  width: 100%;
+  text-align: right;
+  padding: 1em 0;
+}
+/* line 251, ../scss/app.scss */
+section .imageContainer .img .hashtags ul li {
+  width: 100%;
+  font-family: "phoreuscherokee",sans-serif;
+  font-style: italic;
+  font-weight: 300;
+  display: inline;
+  text-align: right;
+  font-style: italic;
+  font-weight: 300;
+  color: #fff;
+  font-size: 1em;
+  padding: 0.2em 1em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: rgba(0, 0, 0, 0.6) 1px 3px 2px;
+}
+/* line 269, ../scss/app.scss */
+section .imageContainer .img .loadIndicator:before {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+}
+/* line 280, ../scss/app.scss */
+section .imageContainer .overlay {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+  opacity: 0.4;
+  background: #000;
+}
+/* line 291, ../scss/app.scss */
+section .imageContainer.fullsize .img {
+  float: none;
+  margin: 0 auto;
+}
+/* line 300, ../scss/app.scss */
+section .imageContainer.ratio-16-9 .img .ratioEnforcer {
+  padding-top: 56.25%;
+}
+/* line 307, ../scss/app.scss */
+section .imageContainer.ratio-1-1 .img .ratioEnforcer {
+  padding-top: 100%;
+}
+/* line 312, ../scss/app.scss */
+section .imageContainer.ratio-2-3 {
+  width: 50%;
+  padding-top: 4em;
+}
+/* line 315, ../scss/app.scss */
+section .imageContainer.ratio-2-3 .img {
+  float: none;
+  margin: 0 auto;
+}
+/* line 318, ../scss/app.scss */
+section .imageContainer.ratio-2-3 .img .ratioEnforcer {
+  padding-top: 150%;
+}
+/* line 322, ../scss/app.scss */
+section .imageContainer.ratio-2-3 .hashtagsxxx {
+  position: relative;
+  width: 100%;
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+/* line 326, ../scss/app.scss */
+section .imageContainer.ratio-2-3 .hashtagsxxx span {
+  height: 30px;
+}
+/* line 329, ../scss/app.scss */
+section .imageContainer.ratio-2-3 .hashtagsxxx span:first-child {
+  display: none;
+}
+/* line 332, ../scss/app.scss */
+section .imageContainer.ratio-2-3 .hashtagsxxx ul {
+  width: 60%;
+  margin: 0 auto;
+  overflow: hidden;
+  text-align: center;
+}
+/* line 337, ../scss/app.scss */
+section .imageContainer.ratio-2-3 .hashtagsxxx ul li {
+  display: inline-block;
+  width: auto;
+  float: none;
+  padding: 0 0.5em;
+  line-height: 1.6em;
+  font-size: 1.4em;
+}
+/* line 349, ../scss/app.scss */
+section .imageContainer.imgRight .img {
+  float: right;
+}
+/* line 350, ../scss/app.scss */
+section .imageContainer.imgRight .hashtagsxxx {
+  left: 0;
+  right: auto;
+}
+/* line 353, ../scss/app.scss */
+section .imageContainer.whiteBorder .img img {
+  border: 1px solid #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* line 362, ../scss/app.scss */
+footer {
+  color: #fff;
+  padding: 2em;
+  float: left;
+  width: 100%;
+}
+/* line 367, ../scss/app.scss */
+footer .left, footer .right {
+  width: 50%;
+  float: left;
+}
+/* line 371, ../scss/app.scss */
+footer .right {
+  float: right;
+}
+/* line 374, ../scss/app.scss */
+footer h1 {
+  font-size: 3em;
+}
+/* line 377, ../scss/app.scss */
+footer p {
+  font-size: 1.4em;
+}
+
+@media screen and (max-width: 1000px) {
+  /* line 385, ../scss/app.scss */
+  header nav a {
+    font-size: 1.5em;
+    padding: 0 12px;
+    line-height: 3.5em;
+  }
+}
+@media screen and (max-width: 800px) {
+  /* line 396, ../scss/app.scss */
+  section .imageContainer {
+    padding: 2em 2em 1em;
+  }
+  /* line 398, ../scss/app.scss */
+  section .imageContainer .img {
+    width: 100%;
+  }
+  /* line 401, ../scss/app.scss */
+  section .imageContainer .hashtags {
+    width: 100%;
+    position: relative;
+    top: auto;
+    right: auto;
+    float: left;
+    padding-top: 1em;
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  /* line 409, ../scss/app.scss */
+  section .imageContainer .hashtags ul {
+    text-align: right;
+  }
+  /* line 411, ../scss/app.scss */
+  section .imageContainer .hashtags ul li {
+    width: auto;
+    display: inline;
+    padding: 0 0 0 0.3em;
+    font-size: 1.8em;
+  }
+  /* line 418, ../scss/app.scss */
+  section .imageContainer .hashtags span {
+    display: none;
+  }
+}
+/*
+.imageContainer{
+    width: 48%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    float: left;
+    padding: 2px;
+    position: relative;
+    background: none !important;
+    margin: 0 1% 8px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 10px;
+    .img{
+      display: block;
+      position: relative;
+      float: left;
+      width: 100%;
+      z-index: 10;
+      box-shadow: inset rgba(0, 0, 0, 0.4) 0px 10px 10px;
+      img{
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+      }
+      .inner-shadow{
+          z-index: 20;
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+          opacity: 0.4;
+          box-shadow: inset 0 0 10px #000000;
+      }
+    }
+}
+*/
