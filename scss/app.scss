@@ -1,67 +1,15 @@
-//@import "settings";
-//@import "foundation";
-
-// Or selectively include components
-// @import
-//   "foundation/components/accordion",
-//   "foundation/components/alert-boxes",
-//   "foundation/components/block-grid",
-//   "foundation/components/breadcrumbs",
-//   "foundation/components/button-groups",
-//   "foundation/components/buttons",
-//   "foundation/components/clearing",
-//   "foundation/components/dropdown",
-//   "foundation/components/dropdown-buttons",
-//   "foundation/components/flex-video",
-//   "foundation/components/forms",
-//   "foundation/components/grid",
-//   "foundation/components/inline-lists",
-//   "foundation/components/joyride",
-//   "foundation/components/keystrokes",
-//   "foundation/components/labels",
-//   "foundation/components/magellan",
-//   "foundation/components/orbit",
-//   "foundation/components/pagination",
-//   "foundation/components/panels",
-//   "foundation/components/pricing-tables",
-//   "foundation/components/progress-bars",
-//   "foundation/components/reveal",
-//   "foundation/components/side-nav",
-//   "foundation/components/split-buttons",
-//   "foundation/components/sub-nav",
-//   "foundation/components/switches",
-//   "foundation/components/tables",
-//   "foundation/components/tabs",
-//   "foundation/components/thumbs",
-//   "foundation/components/tooltips",
-//   "foundation/components/top-bar",
-//   "foundation/components/type",
-//   "foundation/components/offcanvas",
-//   "foundation/components/visibility";
-
+@import "compass";
 @import "compass/css3";
 @import "compass/reset";
 @import "compass/utilities";
 @import "compass/css3/box-shadow";
 
-$bg-color:#11b2de;
 $text-color:#000;
-$field-color:#01ab01;
-$line-color:#fff;
-$block-bg:#d0e9e7;
-$animationTime:300ms;
-
-$own-color:#ddd;
-$opponent-color:#222;
-$radius-color:#fff;
-
 
 
 @mixin uiSprite{
   /*background:transparent url(../images/ui.png) 0 0 no-repeat;*/
 }
-
-
 
 @mixin hashtagsFont{
   font-family: "phoreuscherokee",sans-serif;
@@ -81,7 +29,14 @@ $radius-color:#fff;
   font-weight: 400;*/
   font-family: "ff-enzo-web",sans-serif;
   font-style: normal;
-  font-weight: 100;
+  font-weight: 400;
+  text-rendering:optimizeLegibility;
+}
+
+@mixin baseFont{
+  font-family: "ff-enzo-web",sans-serif;
+  font-style: normal;
+  font-weight: 400;
   text-rendering:optimizeLegibility;
 }
 
@@ -104,14 +59,24 @@ body{
   box-sizing: border-box;
 }
 
-a, a:hover, a:active, a:focus,input:focus {
+a, a:hover, a:active, a:focus,input:focus,textarea:focus {
   outline:0;
 
 }
 
+p,input,textarea{
+  @include baseFont;
+  font-size: 1.5em;
+  line-height: 1.2em;
+
+}
+strong{
+  font-weight: 700;
+}
+
 header{
   float: left;
-  background-image: url(../img/sprites/logo_text_grey.png);
+  background-image: url(../img/sprites/logo_text_bw.png);
   background-size: contain;
   background-position: 50% 50%;
   background-repeat: no-repeat;
@@ -127,8 +92,9 @@ header{
       @include navFont;
       text-transform: uppercase;
       text-decoration: none;
-      color: #aaa;
-      font-size: 1.2em;
+      color: #CEBD2E;
+      color: #000;
+      font-size: 1.4em;
       line-height: 1em;
       position: relative;
       float: left;
@@ -136,7 +102,7 @@ header{
       padding: 4px 1em 0;
       display: inline-block;
       text-align: center;
-      @include text-shadow(rgba(0, 0, 0, 0.14) 1px 1.732px 2px);
+      @include text-shadow(rgba(0, 0, 0, 0.1) 0px 0px 2px);
       float: right;
       span{
         display: none;
@@ -178,13 +144,40 @@ header{
 
 section{
   width:100%;
+  float: left;
+  position: relative;
+  h1,p{
+    text-align: center;
+    width: 50%;
+  }
 
   h1{
     @include headingFont;
-    font-size: 8em;
-    color: #fff;
-    padding: 40px;
-    text-shadow: rgba(0, 0, 0, 0.6) 0px 0px 1px;
+    font-size: 7em;
+    color: #E0D252;
+    color: #666;
+    float: left;
+    @include text-shadow(rgba(0, 0, 0, 0.4) -1px 1px 0px);
+    position: relative;
+    padding: 40px 10px;
+    span{
+      font-size: 0.4em;
+      vertical-align: middle;
+      position: absolute;
+      top: 64%;
+      left: 38%;
+    }
+  }
+
+  p{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0 2%;
+    margin-top: 1em;
+    color: #CEBD2E;
+    color: #000;
   }
 
   .imageContainer{
@@ -359,22 +352,105 @@ section{
 } //section
 
 footer{
-  color:#fff;
-  padding: 2em;
   float: left;
   width: 100%;
+  position: relative;
+  background-image: url(../img/sprites/curles2_black.png);
+  background-size: 10%;
+  background-position: 50% 0%;
+  background-repeat: no-repeat;
+  padding: 60px 1% 0;
+  margin: 60px 0;
   .left,.right{
     width: 50%;
     float:left;
   }
-  .right{
-    float:right;
+  .left{
+    padding-right: 20px;
+    h3,a,p{
+      text-align: right;
+      float: right;
+    }
   }
-  h1{
+  .right{
+    padding-left: 20px;
+    padding-bottom: 60px;
+  }
+  .logo{
+    position: absolute;
+    left: 50%;
+    margin-left: 20px;
+    bottom: 0;
+    text-decoration: none;
+    display: block;
+    width: 100px;
+    img{
+      width: 100%;
+      height:auto;
+    }
+  }
+  .divider{
+    position: absolute;
+    top:60px;
+    left: 50%;
+    bottom: 0;
+    width: 1px;
+    background: #000;
+  }
+  h3{
     font-size: 3em;
+    @include headingFont;
+    margin-bottom: 1em;
+    color: #000;
+    width: 100%;
+    margin-bottom: 0.5em;
   }
   p{
+    color: #000;
     font-size: 1.4em;
+    margin-bottom: 1em;
+    width: 100%;
+  }
+  form{
+    width:100%;
+    float: left;
+    margin-bottom: 2em;
+    input,textarea{
+      width: 100%;
+      float: right;
+      max-width: 400px;
+      margin-bottom: 1em;
+      border: 1px solid #000;
+      padding: 4px 8px;
+    }
+    textarea{
+      height: 100px;
+      resize: none;
+    }
+    a{
+      display: inline-block;
+      border-radius: 10%;
+      margin-bottom: 1em;
+      width: auto;
+      float: right;
+      @include navFont;
+      font-size: 1.2em;
+      text-decoration: none;
+      text-transform: uppercase;
+      background: #000;
+      color:#fff;
+      padding: 10px;
+      clear: both;
+    }
+  }
+  .photographer{
+    width:100%;
+    float: left;
+    background-image: url(../img/me.jpg);
+    background-size: 100px auto;
+    background-position: 100% 50%;
+    background-repeat: no-repeat;
+    padding-right: 120px;
   }
 }
 
