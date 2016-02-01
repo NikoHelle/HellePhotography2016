@@ -62,15 +62,16 @@ foreach ($json->photoset->photo as $photo){
     }
     echo("<p>Comments:".$comments."</p>");
     $i++;
-    if($i>15){
-        break;
-    }
+    #if($i>15){
+     #   break;
+    #}
 
     $photo->sizes = $sizes;
     $photo->width = $originalSize->width;
     $photo->height = $originalSize->height;
     $photo->comments = $comments;
-    print_r($flickrDB->savePhoto($setId,$photo));
+    $flickrDB->savePhoto($setId,$photo);
+    #print_r($flickrDB->savePhoto($setId,$photo));
     #die();
     #$originalSecret = 	$flickr->getPhotoInfo($photo);
     #if(FlickrHA::hasError($originalSecret)) return FlickrViewer::createErrorObject("Error while getting original secret :".$originalSecret->message);

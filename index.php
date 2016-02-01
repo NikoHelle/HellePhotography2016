@@ -57,7 +57,7 @@
            <h3>Hinnasto</h3>
            <p>
                Studiokuvauksen hinta on <strong>150€</strong>, johon kuuluu puolitoista tuntia kuvausaikaa ja <strong>12</strong> finalisoitua kuvaa. Nämä kuvat saat itse valita studiossa otettujen joukosta, joita on tavallisesti <strong>150-300</strong> - riippuen mallin paikallaan pysymisestä. :)
-               Kuvien finalisoinnissa säädetään värit ja valaistus sekä korjataan esimerkiksi kuolat, taustan epätasaisuudet ja muut asiat, jotka eivät kuulu kuvaan.
+               Kuvien finalisoinnissa säädetään värit ja valaistus sekä korjataan esimerkiksi kuolat, taustan epätasaisuudet ja muut asiat, jotka eivät kuulu kuvaan. RESOLUUTIO, DIGI
            </p>
            <p>
                Kuvaan mielelläni myös studion ulkopuolella ja kalustoni on liikuteltavissa minne tahansa.
