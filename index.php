@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Helle Photography</title>
     <link rel="stylesheet" href="stylesheets/app.css" />
-    <script src="bower_components/modernizr/modernizr.js"></script>
+    <script src="js/vendor/modernizr.custom.js"></script>
+    <script src="js/vendor/jquery-min.js"></script>
       <script src="//use.typekit.net/xpy7ian.js"></script>
       <script>try{Typekit.load();}catch(e){}</script>
   </head>
@@ -73,9 +74,5 @@
        <a href="#header" class="logo"><img src="img/sprites/logo_text_bw.png" alt="Helle Photography"/></a>
 
    </footer>
-
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/foundation/js/foundation.min.js"></script>
-    <script src="js/app.js"></script>
   </body>
 </html>

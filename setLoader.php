@@ -34,6 +34,9 @@ $flickrDB = new FlickrDB($flickr);
 $id = isset($_REQUEST["id"]) ? $_REQUEST["id"] : false;
 $error = false;
 
+#$info = $flickr->getPhotoInfo("16077656781");
+
+
 
 #$sizes = $flickr->getPhotosSizes($json->photoset->photo);
 #$info = $flickr->getPhotoComments($json->photoset->photo[0]->id);
@@ -53,23 +56,27 @@ foreach ($json->photoset->photo as $photo){
     $sizes = FlickrPhotoHA::sizeListToValue($sizes);
     echo("<p>Sizes:".$sizes."</p>");
     echo("<p>Id:".$photo->id."</p>");
-    $comments = $flickr->getPhotoComments($photo);
-    if(!$comments){
-        $comments = "";
+    #$comments = $flickr->getPhotoComments($photo);
+    $info = $flickr->getPhotoInfo($photo->id);
+    $description = $info->photo->description;
+    #print_r($info);
+
+    if(!$description){
+        $description = "";
     }
     else{
-        $comments= $comments[0]->_content;
+        $description= $description->_content;
     }
-    echo("<p>Comments:".$comments."</p>");
-    $i++;
-    #if($i>15){
+    echo("<p>description:".$description."</p>");
+    #$i++;
+    #if($i>4){
      #   break;
     #}
-
+    #continue;
     $photo->sizes = $sizes;
     $photo->width = $originalSize->width;
     $photo->height = $originalSize->height;
-    $photo->comments = $comments;
+    $photo->comments = $description;
     $flickrDB->savePhoto($setId,$photo);
     #print_r($flickrDB->savePhoto($setId,$photo));
     #die();

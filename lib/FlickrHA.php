@@ -148,7 +148,7 @@ o	original image, either a jpg, gif or png, depending on source format
 		$result = $this->_getResults($url);
 		if(FlickrHA::hasError($result)) return $result;
 		
-		return $result->sizes;
+		return $result;
 
 	 }
 
