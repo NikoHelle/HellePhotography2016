@@ -1,3 +1,12 @@
+<?php
+include_once "lib/config.php";
+
+$path = $_REQUEST["path"];
+
+$set = $config->paths[$path];
+
+?>
+
 <!doctype html>
 <html class="no-js" lang="en">
   <head>
@@ -29,13 +38,12 @@
        </nav>
    </header>
    <section>
-       <h1>Lapsikuvaus<span>on kuvaajan parasta aikaa!</span></h1>
-       <p>Kuvaan paljon 1-vuotiaita, joita hyvin harvoin ujostuttaa ja aina löytyy jotain millä heidät saa hymyilemään. Viimeistään saippuakuplakone saa silmät loistamaan ja iloiset ilmeet jokaiseen kuvaan!</p>
+       <h1><?= $set->title;?><span><?= $set->subtitle;?></span></h1>
+       <?= $set->description;?>
    </section>
    <section>
        <?
-
-       echo file_get_contents("data/test.html");
+       echo file_get_contents("data/".$set->id.".html");
        ?>
    </section>
    <footer>
@@ -68,6 +76,8 @@
            </p>
            <p> Hinnat sisältävät arvonlisäveron 24%.</p>
            <p><strong>Ota yhteyttä ja varaa aika rakkaittesi ikuistamiseksi!</strong></p>
+
+           <h1>Copyright</h1>
 
        </div>
        <div class="divider"></div>

@@ -20,6 +20,7 @@ $secret = "25e5fcd971be9bb9";
 $tokenKey= "72157631808364528-6b6d2e85e9679674";
 $tokenSecret = "27c1b928d9306c59";
 
+include_once "lib/config.php";
 
 include_once "lib/FlickrHA.php";
 include_once "lib/FlickrPhotoHA.php";
@@ -27,24 +28,16 @@ include_once "lib/FlickrPhotoHA.php";
 include_once "lib/FlickrDB.php";
 
 
-$flickr = new FlickrHA($apiKey,$secret,$tokenKey,$tokenSecret);
-$flickrDB = new FlickrDB($flickr);
+$flickr = new FlickrHA($config->flickr->apiKey,$config->flickr->secret,$config->flickr->tokenKey,$config->flickr->tokenSecret);
+$flickrDB = new FlickrDB($flickr,$config->db);
 
-#$type = isset($_REQUEST["type"]) ? $_REQUEST["type"] : false;
-$id = isset($_REQUEST["id"]) ? $_REQUEST["id"] : false;
-$error = false;
+$setName = isset($_REQUEST["setName"]) ? $_REQUEST["setName"] : false;
+if(!$setName || !$config->sets[$setName]) die("no set");
 
-#$info = $flickr->getPhotoInfo("16077656781");
+echo "<p>Getting images for set ".$setName."...</p>";
 
-
-
-#$sizes = $flickr->getPhotosSizes($json->photoset->photo);
-#$info = $flickr->getPhotoComments($json->photoset->photo[0]->id);
-
-echo "<p>Getting images for set ".$id."...</p>";
-
-$setId = "72157663923690755";
-$json = $flickr->getSetPhotos($setId);
+#$setId = "72157663923690755";
+$json = $flickr->getSetPhotos($config->sets[$setName]->setId);
 $i = 0;
 foreach ($json->photoset->photo as $photo){
     set_time_limit(20);
@@ -72,19 +65,11 @@ foreach ($json->photoset->photo as $photo){
     #if($i>4){
      #   break;
     #}
-    #continue;
     $photo->sizes = $sizes;
     $photo->width = $originalSize->width;
     $photo->height = $originalSize->height;
     $photo->comments = $description;
-    $flickrDB->savePhoto($setId,$photo);
-    #print_r($flickrDB->savePhoto($setId,$photo));
-    #die();
-    #$originalSecret = 	$flickr->getPhotoInfo($photo);
-    #if(FlickrHA::hasError($originalSecret)) return FlickrViewer::createErrorObject("Error while getting original secret :".$originalSecret->message);
-    #$originalSecret = $originalSecret->originalsecret;
-    #$photoId = $this->savePhotoData($setId,$photo,$originalSecret,$sizes);
-    #if(FlickrViewer::hasError($photoId)) return FlickrViewer::createErrorObject("Error while saving set photo :".$photoId->message);
+    $flickrDB->savePhoto($config->sets[$setName]->setId,$photo);
     echo "</div>";
 }
 

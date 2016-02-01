@@ -4,20 +4,13 @@
 ini_set("display_errors",E_ALL);
 error_reporting(E_ALL);
 
-$apiKey = "e9c2d11b4b0c9861766632f00320b128";
-$secret = "25e5fcd971be9bb9";
-$tokenKey= "72157631808364528-6b6d2e85e9679674";
-$tokenSecret = "27c1b928d9306c59";
-
-
+include_once "lib/config.php";
 include_once "lib/FlickrHA.php";
 include_once "lib/FlickrPhotoHA.php";
-
 include_once "lib/FlickrDB.php";
 
-
-$flickr = new FlickrHA($apiKey,$secret,$tokenKey,$tokenSecret);
-$flickrDB = new FlickrDB($flickr);
+$flickr = new FlickrHA($config->flickr->apiKey,$config->flickr->secret,$config->flickr->tokenKey,$config->flickr->tokenSecret);
+$flickrDB = new FlickrDB($flickr,$config->db);
 
 
 require_once 'lib/Mustache/Autoloader.php';
@@ -50,9 +43,10 @@ function getImageRatio($width,$height){
     }
 
 }
-$setId = "72157663923690755";
+$setName = isset($_REQUEST["setName"]) ? $_REQUEST["setName"] : false;
+if(!$setName || !$config->sets[$setName]) die("no set");
+$setId = $config->sets[$setName]->setId;
 $data = $flickrDB->getDBSetPhotos($setId);
-#var_dump($data);
 $template = file_get_contents("lib/templates/image_template.html");
 
 $html = "";
@@ -75,6 +69,6 @@ foreach($data as $photo){
     $html .= $engine->render($template,$photo);
 }
 
-file_put_contents("data/test.html",$html);
+file_put_contents("data/".$setName.".html",$html);
 
 echo $html;

@@ -280,11 +280,8 @@ section{
       @include opacity(0.4);
       background: #000;
     }
-    &.fullsize{
-      .img{
-        float: none;
-        margin: 0 auto;
-      }
+    &.full-width{
+      width: 98%;
     }
     &.ratio-3-2{
     }
@@ -296,7 +293,10 @@ section{
       }
     }
     &.ratio-1-1{
+      width:23%;
       .img{
+        float: none;
+        margin: 0 auto;
         .ratioEnforcer{
           padding-top: 100%;
         }
@@ -346,6 +346,12 @@ section{
         border: 1px solid #fff;
         border: 1px solid rgba(255, 255, 255, .3);
       }
+    }
+    &.no-shadow{
+
+    }
+    .forced-16-9{
+      width:auto;
     }
   } //.imgContainer
 

@@ -6,6 +6,7 @@ class FlickrDB
 	private $db;
 	public static $sizeDelimeter = "#";
 	private $_flickr = false;
+	private $_config = false;
 
 	const ERROR_NONE = true;
 	const ERROR_NO_PHOTOS = 1;
@@ -28,7 +29,7 @@ class FlickrDB
 
 
 	// method declaration
-	function __construct($flickr)
+	function __construct($flickr,$config)
 	{
 
 		require_once "FlickrHA.php";
@@ -36,11 +37,13 @@ class FlickrDB
 		require_once "DB.php";
 		if (!($flickr instanceof FlickrHA)) throw new Exception('FlickrHA must be defined');
 		$this->_flickr = $flickr;
+		$this->_config = $config;
 
 	}
 	private function _connectDB(){
 		if($this->db) return;
-		$this->db = new DB("root","root","localhost","hellephotography2016");
+
+		$this->db = new DB($this->_config->user,$this->_config->password,$this->_config->host,$this->_config->database);
 		//$this->db = new DB("hellepho_user1","f{b5E_7!TKLU","localhost","hellepho_image_service");
 	}
 

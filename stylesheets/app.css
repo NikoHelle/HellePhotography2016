@@ -339,14 +339,22 @@ section .imageContainer .overlay {
   opacity: 0.4;
   background: #000;
 }
-/* line 284, ../scss/app.scss */
-section .imageContainer.fullsize .img {
-  float: none;
-  margin: 0 auto;
+/* line 283, ../scss/app.scss */
+section .imageContainer.full-width {
+  width: 98%;
 }
-/* line 293, ../scss/app.scss */
+/* line 290, ../scss/app.scss */
 section .imageContainer.ratio-16-9 .img .ratioEnforcer {
   padding-top: 56.25%;
+}
+/* line 295, ../scss/app.scss */
+section .imageContainer.ratio-1-1 {
+  width: 23%;
+}
+/* line 297, ../scss/app.scss */
+section .imageContainer.ratio-1-1 .img {
+  float: none;
+  margin: 0 auto;
 }
 /* line 300, ../scss/app.scss */
 section .imageContainer.ratio-1-1 .img .ratioEnforcer {
@@ -412,8 +420,12 @@ section .imageContainer.whiteBorder .img img {
   border: 1px solid #fff;
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
+/* line 353, ../scss/app.scss */
+section .imageContainer .forced-16-9 {
+  width: auto;
+}
 
-/* line 354, ../scss/app.scss */
+/* line 360, ../scss/app.scss */
 footer {
   float: left;
   width: 100%;
@@ -425,26 +437,26 @@ footer {
   padding: 60px 1% 0;
   margin: 60px 0;
 }
-/* line 364, ../scss/app.scss */
+/* line 370, ../scss/app.scss */
 footer .left, footer .right {
   width: 50%;
   float: left;
 }
-/* line 368, ../scss/app.scss */
+/* line 374, ../scss/app.scss */
 footer .left {
   padding-right: 20px;
 }
-/* line 370, ../scss/app.scss */
+/* line 376, ../scss/app.scss */
 footer .left h3, footer .left a, footer .left p {
   text-align: right;
   float: right;
 }
-/* line 375, ../scss/app.scss */
+/* line 381, ../scss/app.scss */
 footer .right {
   padding-left: 20px;
   padding-bottom: 60px;
 }
-/* line 379, ../scss/app.scss */
+/* line 385, ../scss/app.scss */
 footer .logo {
   position: absolute;
   left: 50%;
@@ -454,12 +466,12 @@ footer .logo {
   display: block;
   width: 100px;
 }
-/* line 387, ../scss/app.scss */
+/* line 393, ../scss/app.scss */
 footer .logo img {
   width: 100%;
   height: auto;
 }
-/* line 392, ../scss/app.scss */
+/* line 398, ../scss/app.scss */
 footer .divider {
   position: absolute;
   top: 60px;
@@ -468,7 +480,7 @@ footer .divider {
   width: 1px;
   background: #000;
 }
-/* line 400, ../scss/app.scss */
+/* line 406, ../scss/app.scss */
 footer h3 {
   font-size: 3em;
   font-family: "leander-script-pro",cursive;
@@ -479,20 +491,20 @@ footer h3 {
   width: 100%;
   margin-bottom: 0.5em;
 }
-/* line 408, ../scss/app.scss */
+/* line 414, ../scss/app.scss */
 footer p {
   color: #000;
   font-size: 1.4em;
   margin-bottom: 1em;
   width: 100%;
 }
-/* line 414, ../scss/app.scss */
+/* line 420, ../scss/app.scss */
 footer form {
   width: 100%;
   float: left;
   margin-bottom: 2em;
 }
-/* line 418, ../scss/app.scss */
+/* line 424, ../scss/app.scss */
 footer form input, footer form textarea {
   width: 100%;
   float: right;
@@ -501,12 +513,12 @@ footer form input, footer form textarea {
   border: 1px solid #000;
   padding: 4px 8px;
 }
-/* line 426, ../scss/app.scss */
+/* line 432, ../scss/app.scss */
 footer form textarea {
   height: 100px;
   resize: none;
 }
-/* line 430, ../scss/app.scss */
+/* line 436, ../scss/app.scss */
 footer form a {
   display: inline-block;
   border-radius: 10%;
@@ -528,7 +540,7 @@ footer form a {
   padding: 10px;
   clear: both;
 }
-/* line 446, ../scss/app.scss */
+/* line 452, ../scss/app.scss */
 footer .photographer {
   width: 100%;
   float: left;
@@ -540,7 +552,7 @@ footer .photographer {
 }
 
 @media screen and (max-width: 1000px) {
-  /* line 460, ../scss/app.scss */
+  /* line 466, ../scss/app.scss */
   header nav a {
     font-size: 1.5em;
     padding: 0 12px;
@@ -548,15 +560,15 @@ footer .photographer {
   }
 }
 @media screen and (max-width: 800px) {
-  /* line 471, ../scss/app.scss */
+  /* line 477, ../scss/app.scss */
   section .imageContainer {
     padding: 2em 2em 1em;
   }
-  /* line 473, ../scss/app.scss */
+  /* line 479, ../scss/app.scss */
   section .imageContainer .img {
     width: 100%;
   }
-  /* line 476, ../scss/app.scss */
+  /* line 482, ../scss/app.scss */
   section .imageContainer .hashtags {
     width: 100%;
     position: relative;
@@ -569,18 +581,18 @@ footer .photographer {
     -webkit-transform: translate(0, 0);
     transform: translate(0, 0);
   }
-  /* line 484, ../scss/app.scss */
+  /* line 490, ../scss/app.scss */
   section .imageContainer .hashtags ul {
     text-align: right;
   }
-  /* line 486, ../scss/app.scss */
+  /* line 492, ../scss/app.scss */
   section .imageContainer .hashtags ul li {
     width: auto;
     display: inline;
     padding: 0 0 0 0.3em;
     font-size: 1.8em;
   }
-  /* line 493, ../scss/app.scss */
+  /* line 499, ../scss/app.scss */
   section .imageContainer .hashtags span {
     display: none;
   }
