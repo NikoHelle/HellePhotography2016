@@ -3,7 +3,7 @@ include_once "lib/config.php";
 
 $path = $_REQUEST["path"];
 
-$set = $config->paths[$path];
+$set = $config->sets[$path];
 
 ?>
 
