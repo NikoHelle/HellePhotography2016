@@ -18,7 +18,7 @@ $config->flickr->tokenSecret = "27c1b928d9306c59";
 $config->sets = array();
 $config->sets["lapset"] = (object) array();
 $config->sets["lapset"]->setId = "72157663923690755";
-$config->sets["lapset"]->id = "children";
+$config->sets["lapset"]->id = "lapset";
 $config->sets["lapset"]->path = "lapset";
 $config->sets["lapset"]->title = "Lapsikuvaus";
 $config->sets["lapset"]->subtitle = "on kuvaajan parasta aikaa!";
@@ -26,14 +26,22 @@ $config->sets["lapset"]->description = "<p>Kuvaan paljon 1-vuotiaita, joita hyvi
 
 $config->sets["koirat"] = (object) array();
 $config->sets["koirat"]->setId = "72157649851892598";
-$config->sets["koirat"]->id = "dogs";
+$config->sets["koirat"]->id = "lapset";
 $config->sets["koirat"]->path = "koirat";
 $config->sets["koirat"]->title = "Koirakuvaus";
 $config->sets["koirat"]->subtitle = "on perheenjäsenen ikuistamista";
 $config->sets["koirat"]->description = "<p>Kuvaan paljon 1-vuotiaita, joita hyvin harvoin ujostuttaa ja aina löytyy jotain millä heidät saa hymyilemään. Viimeistään saippuakuplakone saa silmät loistamaan ja iloiset ilmeet jokaiseen kuvaan!</p>";
 
+$config->sets["potretit"] = (object) array();
+$config->sets["potretit"]->setId = "72157663008697505";
+$config->sets["potretit"]->id = "potretit";
+$config->sets["potretit"]->path = "potretit";
+$config->sets["potretit"]->title = "Henkiökuvaus";
+$config->sets["potretit"]->subtitle = "- ikuista itsesi";
+$config->sets["potretit"]->description = "<p>Kuvaan paljon 1-vuotiaita, joita hyvin harvoin ujostuttaa ja aina löytyy jotain millä heidät saa hymyilemään. Viimeistään saippuakuplakone saa silmät loistamaan ja iloiset ilmeet jokaiseen kuvaan!</p>";
 
-$menu = array("lapset","koirat");
+
+$menu = array("lapset","koirat","potretit");
 
 
 ?>

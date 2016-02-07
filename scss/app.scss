@@ -302,6 +302,13 @@ section{
         }
       }
     }
+    &.ratio-3-1{
+      .img{
+        .ratioEnforcer{
+          padding-top: 33.335%;
+        }
+      }
+    }
     &.ratio-2-3{
       width: 23%;
       .img{
@@ -350,7 +357,17 @@ section{
     &.no-shadow{
 
     }
-    .forced-16-9{
+    .forced-ratio-16-9{
+      .img{
+        overflow: hidden;
+        .ratioEnforcer{
+          padding-top: 56.25%;
+        }
+        img{
+          height: auto;
+        }
+      }
+      overflow: hidden;
       width:auto;
     }
   } //.imgContainer

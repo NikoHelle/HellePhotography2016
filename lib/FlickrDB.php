@@ -56,11 +56,19 @@ class FlickrDB
 		return (object) $ret;
 	}
 
+	public function deletePhoto($setId,$photo)
+	{
+
+		$this->_connectDB();
+		$sql = "DELETE FROM images WHERE set_id=" . $this->db->quote($setId) . " AND id=" . $this->db->quote($photo->id);
+		$this->db->delete($sql);
+
+	}
 	public function savePhoto($setId,$photo){
 
 		$this->_connectDB();
-		$sql = "DELETE FROM images WHERE set_id=".$this->db->quote($setId)." AND id=".$this->db->quote($photo->id);
-		$this->db->delete($sql);
+
+		$this->deletePhoto($setId,$photo);
 
 		$sql = "INSERT INTO images (set_id,id,secret,server,farm,original_secret,original_width,original_height,size_ratio, sizes,comments,added) VALUES (";
 

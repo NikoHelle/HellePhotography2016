@@ -52,6 +52,11 @@ foreach ($json->photoset->photo as $photo){
     #$comments = $flickr->getPhotoComments($photo);
     $info = $flickr->getPhotoInfo($photo->id);
     $description = $info->photo->description;
+
+    if(strpos($description,"hide") == 0) {
+        $flickrDB->deletePhoto($config->sets[$setName]->setId,$photo);
+        continue;
+    }
     #print_r($info);
 
     if(!$description){

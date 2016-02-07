@@ -360,20 +360,24 @@ section .imageContainer.ratio-1-1 .img {
 section .imageContainer.ratio-1-1 .img .ratioEnforcer {
   padding-top: 100%;
 }
-/* line 305, ../scss/app.scss */
+/* line 307, ../scss/app.scss */
+section .imageContainer.ratio-3-1 .img .ratioEnforcer {
+  padding-top: 33.335%;
+}
+/* line 312, ../scss/app.scss */
 section .imageContainer.ratio-2-3 {
   width: 23%;
 }
-/* line 307, ../scss/app.scss */
+/* line 314, ../scss/app.scss */
 section .imageContainer.ratio-2-3 .img {
   float: none;
   margin: 0 auto;
 }
-/* line 310, ../scss/app.scss */
+/* line 317, ../scss/app.scss */
 section .imageContainer.ratio-2-3 .img .ratioEnforcer {
   padding-top: 150%;
 }
-/* line 314, ../scss/app.scss */
+/* line 321, ../scss/app.scss */
 section .imageContainer.ratio-2-3 .hashtagsxxx {
   position: relative;
   width: 100%;
@@ -382,22 +386,22 @@ section .imageContainer.ratio-2-3 .hashtagsxxx {
   -webkit-transform: translate(0, 0);
   transform: translate(0, 0);
 }
-/* line 318, ../scss/app.scss */
+/* line 325, ../scss/app.scss */
 section .imageContainer.ratio-2-3 .hashtagsxxx span {
   height: 30px;
 }
-/* line 321, ../scss/app.scss */
+/* line 328, ../scss/app.scss */
 section .imageContainer.ratio-2-3 .hashtagsxxx span:first-child {
   display: none;
 }
-/* line 324, ../scss/app.scss */
+/* line 331, ../scss/app.scss */
 section .imageContainer.ratio-2-3 .hashtagsxxx ul {
   width: 60%;
   margin: 0 auto;
   overflow: hidden;
   text-align: center;
 }
-/* line 329, ../scss/app.scss */
+/* line 336, ../scss/app.scss */
 section .imageContainer.ratio-2-3 .hashtagsxxx ul li {
   display: inline-block;
   width: auto;
@@ -406,26 +410,39 @@ section .imageContainer.ratio-2-3 .hashtagsxxx ul li {
   line-height: 1.6em;
   font-size: 1.4em;
 }
-/* line 341, ../scss/app.scss */
+/* line 348, ../scss/app.scss */
 section .imageContainer.imgRight .img {
   float: right;
 }
-/* line 342, ../scss/app.scss */
+/* line 349, ../scss/app.scss */
 section .imageContainer.imgRight .hashtagsxxx {
   left: 0;
   right: auto;
 }
-/* line 345, ../scss/app.scss */
+/* line 352, ../scss/app.scss */
 section .imageContainer.whiteBorder .img img {
   border: 1px solid #fff;
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
-/* line 353, ../scss/app.scss */
-section .imageContainer .forced-16-9 {
+/* line 360, ../scss/app.scss */
+section .imageContainer .forced-ratio-16-9 {
+  overflow: hidden;
   width: auto;
 }
+/* line 361, ../scss/app.scss */
+section .imageContainer .forced-ratio-16-9 .img {
+  overflow: hidden;
+}
+/* line 363, ../scss/app.scss */
+section .imageContainer .forced-ratio-16-9 .img .ratioEnforcer {
+  padding-top: 56.25%;
+}
+/* line 366, ../scss/app.scss */
+section .imageContainer .forced-ratio-16-9 .img img {
+  height: auto;
+}
 
-/* line 360, ../scss/app.scss */
+/* line 377, ../scss/app.scss */
 footer {
   float: left;
   width: 100%;
@@ -437,26 +454,26 @@ footer {
   padding: 60px 1% 0;
   margin: 60px 0;
 }
-/* line 370, ../scss/app.scss */
+/* line 387, ../scss/app.scss */
 footer .left, footer .right {
   width: 50%;
   float: left;
 }
-/* line 374, ../scss/app.scss */
+/* line 391, ../scss/app.scss */
 footer .left {
   padding-right: 20px;
 }
-/* line 376, ../scss/app.scss */
+/* line 393, ../scss/app.scss */
 footer .left h3, footer .left a, footer .left p {
   text-align: right;
   float: right;
 }
-/* line 381, ../scss/app.scss */
+/* line 398, ../scss/app.scss */
 footer .right {
   padding-left: 20px;
   padding-bottom: 60px;
 }
-/* line 385, ../scss/app.scss */
+/* line 402, ../scss/app.scss */
 footer .logo {
   position: absolute;
   left: 50%;
@@ -466,12 +483,12 @@ footer .logo {
   display: block;
   width: 100px;
 }
-/* line 393, ../scss/app.scss */
+/* line 410, ../scss/app.scss */
 footer .logo img {
   width: 100%;
   height: auto;
 }
-/* line 398, ../scss/app.scss */
+/* line 415, ../scss/app.scss */
 footer .divider {
   position: absolute;
   top: 60px;
@@ -480,7 +497,7 @@ footer .divider {
   width: 1px;
   background: #000;
 }
-/* line 406, ../scss/app.scss */
+/* line 423, ../scss/app.scss */
 footer h3 {
   font-size: 3em;
   font-family: "leander-script-pro",cursive;
@@ -491,20 +508,20 @@ footer h3 {
   width: 100%;
   margin-bottom: 0.5em;
 }
-/* line 414, ../scss/app.scss */
+/* line 431, ../scss/app.scss */
 footer p {
   color: #000;
   font-size: 1.4em;
   margin-bottom: 1em;
   width: 100%;
 }
-/* line 420, ../scss/app.scss */
+/* line 437, ../scss/app.scss */
 footer form {
   width: 100%;
   float: left;
   margin-bottom: 2em;
 }
-/* line 424, ../scss/app.scss */
+/* line 441, ../scss/app.scss */
 footer form input, footer form textarea {
   width: 100%;
   float: right;
@@ -513,12 +530,12 @@ footer form input, footer form textarea {
   border: 1px solid #000;
   padding: 4px 8px;
 }
-/* line 432, ../scss/app.scss */
+/* line 449, ../scss/app.scss */
 footer form textarea {
   height: 100px;
   resize: none;
 }
-/* line 436, ../scss/app.scss */
+/* line 453, ../scss/app.scss */
 footer form a {
   display: inline-block;
   border-radius: 10%;
@@ -540,7 +557,7 @@ footer form a {
   padding: 10px;
   clear: both;
 }
-/* line 452, ../scss/app.scss */
+/* line 469, ../scss/app.scss */
 footer .photographer {
   width: 100%;
   float: left;
@@ -552,7 +569,7 @@ footer .photographer {
 }
 
 @media screen and (max-width: 1000px) {
-  /* line 466, ../scss/app.scss */
+  /* line 483, ../scss/app.scss */
   header nav a {
     font-size: 1.5em;
     padding: 0 12px;
@@ -560,15 +577,15 @@ footer .photographer {
   }
 }
 @media screen and (max-width: 800px) {
-  /* line 477, ../scss/app.scss */
+  /* line 494, ../scss/app.scss */
   section .imageContainer {
     padding: 2em 2em 1em;
   }
-  /* line 479, ../scss/app.scss */
+  /* line 496, ../scss/app.scss */
   section .imageContainer .img {
     width: 100%;
   }
-  /* line 482, ../scss/app.scss */
+  /* line 499, ../scss/app.scss */
   section .imageContainer .hashtags {
     width: 100%;
     position: relative;
@@ -581,18 +598,18 @@ footer .photographer {
     -webkit-transform: translate(0, 0);
     transform: translate(0, 0);
   }
-  /* line 490, ../scss/app.scss */
+  /* line 507, ../scss/app.scss */
   section .imageContainer .hashtags ul {
     text-align: right;
   }
-  /* line 492, ../scss/app.scss */
+  /* line 509, ../scss/app.scss */
   section .imageContainer .hashtags ul li {
     width: auto;
     display: inline;
     padding: 0 0 0 0.3em;
     font-size: 1.8em;
   }
-  /* line 499, ../scss/app.scss */
+  /* line 516, ../scss/app.scss */
   section .imageContainer .hashtags span {
     display: none;
   }

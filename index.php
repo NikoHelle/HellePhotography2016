@@ -22,19 +22,18 @@ $set = $config->sets[$path];
   <body>
    <header id="header">
        <nav class="main">
-           <a href="/muut">Muut</a>
+           <a href="/luonto">Luonto</a>
+           <a href="/maailma">Maailma</a>
            <a href="/haat">Häät</a>
-           <a href="/fitness">Fitness</a>
-           <a href="/fitness">Potretit</a>
-           <a href="/lapset">Lapset</a>
+           <a href="/otretit">Potretit</a>
            <a href="/koirat">Koirat</a>
+           <a href="/lapset">Lapset</a>
        </nav>
        <nav class="contact">
            <a href="#prices">Hinnasto</a>
            <a href="#contact">Ota yhteyttä</a>
-           <a href="/hinnat">Facebook</a>
-           <a href="/hinnat">Instagram</a>
-           <a href="/hinnat">Pinterest</a>
+           <a href="http://facebook.com">Facebook</a>
+           <a href="http://instagram.com">Instagram</a>
        </nav>
    </header>
    <section>
