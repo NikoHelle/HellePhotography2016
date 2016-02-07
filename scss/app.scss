@@ -189,6 +189,9 @@ section{
     box-shadow: rgba(0, 0, 0, 0.2) 0px 7px 14px;
     background: #f7f7f7;
     margin-bottom: 14px;
+    opacity: 0.01;
+    @include transition-property(opacity);
+    @include transition-duration(1s);
     .img{
       display: block;
       position: relative;
@@ -271,7 +274,7 @@ section{
     } //.img
 
     .overlay{
-      z-index: 1;
+      z-index: 4;
       position: absolute;
       top:0;
       left:0;
@@ -282,6 +285,22 @@ section{
     }
     &.full-width{
       width: 98%;
+      padding:60px;
+      .img{
+        border: 1px solid #fff;
+      }
+      .bg_img{
+        z-index: 2;
+        position: absolute;
+        top:0;
+        left:0;
+        bottom:0;
+        right:0;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size:cover;
+
+      }
     }
     &.ratio-3-2{
     }
@@ -369,6 +388,32 @@ section{
       }
       overflow: hidden;
       width:auto;
+    }
+    &.highlighted-portrait{
+      width:48%;
+    }
+    &.loaded{
+      opacity: 1;
+    }
+    &.loaded{
+      &.full-width{
+        .bg_img{
+          -webkit-filter: blur(3px);
+          -moz-filter: blur(3px);
+          -o-filter: blur(3px);
+          -ms-filter: blur(3px);
+          filter: blur(3px);
+          overflow: hidden;
+        }
+      }
+      .logo{
+
+      }
+      .overlay{
+        @include opacity(0.4);
+        background: #000;
+
+      }
     }
   } //.imgContainer
 

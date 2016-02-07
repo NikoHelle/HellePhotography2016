@@ -1,4 +1,4 @@
-/*define("App",["jquery","ImageController"],
+define("App",["jquery","ImageController"],
     function($,ImageController){
         var App = function(){
             console.log("hello app")
@@ -16,6 +16,6 @@
 
     }
 );
-*/
+
 
 
