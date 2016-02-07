@@ -1,21 +1,21 @@
 <?php
-//error_reporting(E_ALL^E_WARNING^E_NOTICE^E_DEPRECATED);
-//include 'db.php';
-//DBConnect();
 
+ini_set("display_errors",E_ALL);
+error_reporting(E_ALL);
 
-$_REQUEST["email"] = "niko.helle@taivas.fi";
+$time = isset($_SESSION["page_start"]) ? $_SESSION["page_start"] : 0;
+$no_value = isset($_REQUEST["v1"]) ? $_REQUEST["v1"] : 0;
+$must_value = isset($_REQUEST["v2"]) ? $_REQUEST["v2"] : 0;
+$keypresses_value = isset($_REQUEST["kb1"]) ? $_REQUEST["kb1"] : 0;
+$session_value = isset($_SESSION["s1"]) ? $_SESSION["s1"] : 0;
+$session_form_value = isset($_REQUEST["s1"]) ? $_REQUEST["s1"] : 0;
 
-$sender_email = "no-reply@bsag.fi";
-$sender_name = "Baltic Sea Action Group";
-$recepient_email = strtolower($_REQUEST["email"]);
-$recepient_name = $_REQUEST["company"];
-$language = $_REQUEST["language"];
-if($language !== "fi" && $language !== "en" && $language !== "se") $language = "fi"; 
-//$file = "../cards/".$filename;
-$fileURLs = "";
+$_REQUEST["email"] = "niko.helle@hellephotography.com";
 
-$images = isset($_REQUEST["images"]) ? explode(",",$_REQUEST["images"]) : array();
+$recepient_email = "niko.helle@hyperactive.fi";
+$recepient_name = "niko helle";
+$sender_name = "Webform";
+$sender_email = $_REQUEST["email"];
 
 
 function checkEmailAddress($email,$ignore) {
@@ -23,10 +23,7 @@ function checkEmailAddress($email,$ignore) {
     return false;
 }
 
-if(checkEmailAddress($recepient_email, FILTER_VALIDATE_EMAIL) === FALSE) die("success=false&error=EMAIL&message=".urlencode("Anna sähköpostiosoitteesi"));
-
-
-
+if(checkEmailAddress($sender_email, FILTER_VALIDATE_EMAIL) === FALSE) die("success=false&error=EMAIL&message=".urlencode("Anna sähköpostiosoitteesi"));
 
 require_once('class.phpmailer.php');
 
@@ -40,37 +37,13 @@ try {
 	$mail->SetFrom(utf8_decode($sender_email), utf8_decode($sender_name));
 	// $mail->AddReplyTo('name@yourdomain.com', 'First Last');
 
-    foreach($images as $key=>$value){
+	$msg = "sdfslk"; //$_REQUEST["msg"];
 
-
-        $mail->AddAttachment("saved/".$value);      // attachment
-        $fileURLs .= "http://joululahjaitamerelle.fi/php/saved/".$value;
-    }
-	if($language === "fi") {
-		$mail->Subject = utf8_decode('Joulukortti');
-		$mail->AltBody = utf8_decode('Lukeaksesi tämän viestin tarvitset HTML-yhteensopivan sähköpostiohjelman. Voit myös ladata joulukortin täältä:'.$fileURL); // optional - MsgHTML will create an alternate automatically
-		$msg = file_get_contents('mail.html');
-	}
-	else if($language === "en"){
-		$mail->Subject = utf8_decode('Christmas Card');
-		$mail->AltBody = utf8_decode('You need a HTML compatible email client to read this message. You can also load your christmas card here:'.$fileURL); // optional - MsgHTML will create an alternate automatically
-		$msg = file_get_contents('mail_en.html');
-	}
-	else {
-		$mail->Subject = utf8_decode('Julkort');
-		$mail->AltBody = utf8_decode('You need a HTML compatible email client to read this message. You can also load your christmas card here:'.$fileURL); // optional - MsgHTML will create an alternate automatically
-		$msg = file_get_contents('mail_se.html');
-	}
-	$msg = str_replace("#SRC#",utf8_decode($file),$msg);
 	$mail->MsgHTML($msg);
 
-	
 	$mail->Send();
-	
-	//$log = date("d.m.y H:i:s").",".$recepient_email.",".utf8_encode($recepient_name).",".utf8_encode($fileURL).",".utf8_encode($language)."\n";
-	//$bytes = file_put_contents("log.txt",$log,FILE_APPEND | LOCK_EX);
-  
-  
+
+    die("success=true"); //Boring error messages from anything else!
 
 } catch (phpmailerException $e) {
   die("success=false&error=MAILER&message=".urlencode($e->errorMessage())); //Pretty error messages from PHPMailer

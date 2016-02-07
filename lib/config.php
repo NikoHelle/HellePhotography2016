@@ -16,9 +16,15 @@ $config->flickr->tokenKey= "72157631808364528-6b6d2e85e9679674";
 $config->flickr->tokenSecret = "27c1b928d9306c59";
 
 $config->sets = array();
+
+$config->sets["etusivu"] = (object) array();
+$config->sets["etusivu"]->setId = 0;
+$config->sets["etusivu"]->id = "etusivu";
+$config->sets["etusivu"]->path = "etusivu";
+
 $config->sets["lapset"] = (object) array();
 $config->sets["lapset"]->setId = "72157663923690755";
-$config->sets["lapset"]->id = "children";
+$config->sets["lapset"]->id = "lapset";
 $config->sets["lapset"]->path = "lapset";
 $config->sets["lapset"]->title = "Lapsikuvaus";
 $config->sets["lapset"]->subtitle = "on kuvaajan parasta aikaa!";
@@ -47,6 +53,14 @@ $config->sets["maailma"]->path = "maailma";
 $config->sets["maailma"]->title = "Maailma";
 $config->sets["maailma"]->subtitle = "on perheenjäsenen ikuistamista";
 $config->sets["maailma"]->description = "<p>Kuvaan paljon 1-vuotiaita, joita hyvin harvoin ujostuttaa ja aina löytyy jotain millä heidät saa hymyilemään. Viimeistään saippuakuplakone saa silmät loistamaan ja iloiset ilmeet jokaiseen kuvaan!</p>";
+
+$config->sets["haat"] = (object) array();
+$config->sets["haat"]->setId = "72157647937571103";
+$config->sets["haat"]->id = "haat";
+$config->sets["haat"]->path = "haat";
+$config->sets["haat"]->title = "haat";
+$config->sets["haat"]->subtitle = "on perheenjäsenen ikuistamista";
+$config->sets["haat"]->description = "<p>Kuvaan paljon 1-vuotiaita, joita hyvin harvoin ujostuttaa ja aina löytyy jotain millä heidät saa hymyilemään. Viimeistään saippuakuplakone saa silmät loistamaan ja iloiset ilmeet jokaiseen kuvaan!</p>";
 
 $menu = array("lapset","koirat");
 

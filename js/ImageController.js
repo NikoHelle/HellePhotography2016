@@ -4,7 +4,8 @@ define("ImageController",["jquery"],
 
             if(!images || !images.length) return;
             var defaults = {
-                threshold:400,
+                thresholdTop:100,
+                thresholdBottom:400,
                 interval:150,
                 loadClass:"loading",
                 base64Image: "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
@@ -61,8 +62,8 @@ define("ImageController",["jquery"],
 
                 var topPos = this.window.scrollTop();
                 var topBottom = topPos + this.window.height();
-                topPos -= this.options.threshold;
-                topBottom += this.options.threshold;
+                topPos -= this.options.thresholdTop;
+                topBottom += this.options.thresholdBottom;
                 this.lastScroll = false;
 
                 this.images.each(function(){

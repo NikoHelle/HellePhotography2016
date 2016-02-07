@@ -1,10 +1,14 @@
 <?php
 include_once "lib/config.php";
 
-$path = $_REQUEST["path"];
+if(isset($_REQUEST["path"])){
+    $path = $_REQUEST["path"];
 
+}
+else{
+    $path = "etusivu";
+}
 $set = $config->sets[$path];
-
 ?>
 
 <!doctype html>
@@ -20,17 +24,16 @@ $set = $config->sets[$path];
   <body>
    <header id="header">
        <nav class="main">
-           <a href="/luonto">Luonto</a>
-           <a href="/maailma">Maailma</a>
-           <a href="/haat">Häät</a>
-           <a href="/otretit">Potretit</a>
-           <a href="/koirat">Koirat</a>
-           <a href="/lapset">Lapset</a>
+           <a href="maailma">Maailma</a>
+           <a href="haat">Häät</a>
+           <a href="potretit">Potretit</a>
+           <a href="koirat">Koirat</a>
+           <a href="lapset">Lapset</a>
        </nav>
        <nav class="contact">
            <a href="#prices">Hinnasto</a>
            <a href="#contact">Ota yhteyttä</a>
-           <a href="http://facebook.com">Facebook</a>
+           <a href="http://facebook.com/hellephotography">Facebook</a>
            <a href="http://instagram.com">Instagram</a>
        </nav>
    </header>
@@ -49,7 +52,11 @@ $set = $config->sets[$path];
             <h3>Ota yhteyttä</h3>
             <input type="email" name="email" value="" placeholder="Sähköposti" />
             <textarea name="message" placeholder="Viestisi"></textarea>
-            <input type="hidden" name="verification" value="23oi4dslf"/>
+            <input type="hidden" name="v1" value="23oi4dslf"/>
+            <input type="hidden" name="v2" value=""/>
+            <input type="hidden" name="s1" value=""/>
+            <input type="hidden" name="js1" value=""/>
+            <input type="hidden" name="kb1" value=""/>
             <a href="#" id="sendForm">Lähetä</a>
            </form>
            <h3>Kuvaaja</h3>
@@ -73,7 +80,7 @@ $set = $config->sets[$path];
            </p>
            <p> Hinnat sisältävät arvonlisäveron 24%.</p>
            <p><strong>Ota yhteyttä ja varaa aika rakkaittesi ikuistamiseksi!</strong></p>
-
+           RAHAT TAKAs
            <h1>Copyright</h1>
 
        </div>
@@ -81,6 +88,7 @@ $set = $config->sets[$path];
        <a href="#header" class="logo"><img src="img/sprites/logo_text_bw.png" alt="Helle Photography"/></a>
 
    </footer>
+   <a href="#header" class="scroll-nav nav-up">&#8679;</a>
    <script data-main="js/init" src="js/vendor/require.min.js"></script>
   </body>
 </html>

@@ -1,6 +1,5 @@
 # Ignore OS X internals
 .DS_Store
-.idea/
 .sass-cache/
 _old/
 

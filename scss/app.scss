@@ -29,7 +29,7 @@ $text-color:#000;
   font-weight: 400;*/
   font-family: "ff-enzo-web",sans-serif;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 700;
   text-rendering:optimizeLegibility;
 }
 
@@ -146,6 +146,7 @@ section{
   width:100%;
   float: left;
   position: relative;
+  overflow: hidden;
   h1,p{
     text-align: center;
     width: 50%;
@@ -157,7 +158,7 @@ section{
     color: #E0D252;
     color: #666;
     float: left;
-    @include text-shadow(rgba(0, 0, 0, 0.4) -1px 1px 0px);
+    @include text-shadow(rgba(0, 0, 0, 0.2) -1px 3px 1px);
     position: relative;
     padding: 40px 10px;
     span{
@@ -189,9 +190,6 @@ section{
     box-shadow: rgba(0, 0, 0, 0.2) 0px 7px 14px;
     background: #f7f7f7;
     margin-bottom: 14px;
-    opacity: 0.01;
-    @include transition-property(opacity);
-    @include transition-duration(1s);
     .img{
       display: block;
       position: relative;
@@ -261,16 +259,6 @@ section{
         }
 
       } //.hashtags
-      .loadIndicator{
-        &:before{
-          content:"";
-          display: block;
-          width:10px;
-          height:10px;
-          border-radius: 50%;
-          border: 1px solid #ddd;
-        }
-      }
     } //.img
 
     .overlay{
@@ -282,6 +270,34 @@ section{
       right:0;
       @include opacity(0.4);
       background: #000;
+    }
+    .loadIndicator{
+      @include transition-property(opacity);
+      @include transition-duration(1s);
+      z-index: 100;
+      position: absolute;
+      top:0;
+      left:0;
+      bottom:0;
+      right:0;
+      @include opacity(1);
+      background: #fff;
+      border: 1px solid #ccc;
+      &:before{
+        content:"";
+        display:block;
+        position:absolute;
+        top:50%;
+        left:50%;
+        margin: -14px;
+        height: 28px;
+        width: 28px;
+        animation: rotate 1.2s infinite linear;
+        border: 2px solid #ccc;
+        border-right-color: transparent;
+        border-radius: 50%;
+      }
+
     }
     &.full-width{
       width: 98%;
@@ -376,7 +392,7 @@ section{
     &.no-shadow{
 
     }
-    .forced-ratio-16-9{
+    &.forced-ratio-16-9{
       .img{
         overflow: hidden;
         .ratioEnforcer{
@@ -386,16 +402,53 @@ section{
           height: auto;
         }
       }
-      overflow: hidden;
-      width:auto;
+      &.align-bottom{
+        .img img{
+          top:auto;
+          bottom:0;
+        }
+      }
+    }
+    &.forced-ratio-1-1{
+      .img{
+        overflow: hidden;
+        .ratioEnforcer{
+          padding-top: 100%;
+        }
+        img{
+          height: auto;
+        }
+      }
+      &.align-top-third{
+        .img img{
+          top: -33%;
+        }
+      }
+    }
+    &.align-16-9-to-3-2{
+      margin-top:2.5%;
+    }
+    &.force-left{
+      float: left;
+      clear: left;
+    }
+    &.force-right{
+      float: right;
+      clear: right;
     }
     &.highlighted-portrait{
       width:48%;
     }
-    &.loaded{
-      opacity: 1;
+    &.loading {
+
     }
     &.loaded{
+      .loadIndicator{
+        @include opacity(0);
+        &:before{
+          display: none;
+        }
+      }
       &.full-width{
         .bg_img{
           -webkit-filter: blur(3px);
@@ -522,6 +575,27 @@ footer{
   }
 }
 
+a.scroll-nav{
+  position:fixed;
+  font-family: sans-serif;
+  z-index: 999;
+  background: #fff;
+  color:#000;
+  left: 50%;
+  width: 50px;
+  text-align: center;
+  margin-left: -25px;
+  bottom: -10px;
+  padding: 6px 0 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: block;
+  border-radius: 10px;
+  font-size: 15px;
+  border: 1px solid #bbb;
+  @include opacity(0.8);
+}
+
 @media screen and (max-width:1000px){
   header{
     nav{
@@ -570,6 +644,11 @@ footer{
     }
   }
 
+}
+
+@keyframes rotate {
+  0%    { transform: rotate(0deg); }
+  100%  { transform: rotate(360deg); }
 }
 
 /*
