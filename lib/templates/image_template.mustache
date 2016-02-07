@@ -1,7 +1,8 @@
 <div class="imageContainer ratio-{{{ratio}}} {{{classes}}}">
     <div class="img">
-        <span class="ratioEnforcer"></span>
-        <img src="{{url}}" alt="" />
+        <span class="ratioEnforcer"{{# ratioPerc}} style="padding-top:{{ratioPerc}};"{{/ ratioPerc}}></span>
+        <img src="{{base64Image}}" alt="" data-img-src="{{url}}" class="lazyload" />
+        {{# hashtags}}
         <div class="hashtags">
             <span></span>
             <ul>
@@ -9,6 +10,8 @@
             </ul>
             <span></span>
         </div>
+        {{/ hashtags}}
+        <div class="logo"></div>
         <span class="innerShadow"></span>
     </div>
     <div class="loadIndicator"></div>
