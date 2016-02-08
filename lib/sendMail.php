@@ -1,21 +1,32 @@
 <?php
 
+include_once "lib/session.php";
 ini_set("display_errors",E_ALL);
 error_reporting(E_ALL);
 
 $time = isset($_SESSION["page_start"]) ? $_SESSION["page_start"] : 0;
-$no_value = isset($_REQUEST["v1"]) ? $_REQUEST["v1"] : 0;
-$must_value = isset($_REQUEST["v2"]) ? $_REQUEST["v2"] : 0;
-$keypresses_value = isset($_REQUEST["kb1"]) ? $_REQUEST["kb1"] : 0;
-$session_value = isset($_SESSION["s1"]) ? $_SESSION["s1"] : 0;
-$session_form_value = isset($_REQUEST["s1"]) ? $_REQUEST["s1"] : 0;
+$no_value = isset($_POST["v1"]) ? $_POST["v1"] : false;
+$must_value = isset($_POST["v2"]) ? $_POST["v2"] : 0;
+$inputEvent = isset($_POST["ie1"]) ? $_POST["ie1"] : 0;
+$textAreaEvent = isset($_POST["ta1"]) ? $_POST["ta1"] : 0;
+$session_v1 = isset($_SESSION["v1"]) ? $_SESSION["v1"] : 0;
+$session_v2 = isset($_SESSION["v2"]) ? $_SESSION["v2"] : 0;
+$session_form_value = isset($_POST["s1"]) ? $_POST["s1"] : 0;
 
-$_REQUEST["email"] = "niko.helle@hellephotography.com";
+if($no_value || $no_value != $session_v1){
+    die("success=true&v=2");
+}
+
+if(!$must_value || $must_value != $session_v2){
+    die("success=true&v=2");
+}
+
+$_POST["email"] = "niko.helle@hellephotography.com";
 
 $recepient_email = "niko.helle@hyperactive.fi";
 $recepient_name = "niko helle";
 $sender_name = "Webform";
-$sender_email = $_REQUEST["email"];
+$sender_email = $_POST["email"];
 
 
 function checkEmailAddress($email,$ignore) {
@@ -37,13 +48,13 @@ try {
 	$mail->SetFrom(utf8_decode($sender_email), utf8_decode($sender_name));
 	// $mail->AddReplyTo('name@yourdomain.com', 'First Last');
 
-	$msg = "sdfslk"; //$_REQUEST["msg"];
+	$msg = "sdfslk"; //$_POST["msg"];
 
 	$mail->MsgHTML($msg);
 
-	$mail->Send();
+	#$mail->Send();
 
-    die("success=true"); //Boring error messages from anything else!
+    die("success=true&v=1"); //Boring error messages from anything else!
 
 } catch (phpmailerException $e) {
   die("success=false&error=MAILER&message=".urlencode($e->errorMessage())); //Pretty error messages from PHPMailer

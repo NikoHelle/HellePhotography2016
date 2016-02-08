@@ -1,4 +1,5 @@
 <?php
+include_once "lib/session.php";
 include_once "lib/config.php";
 
 if(isset($_REQUEST["path"])){
@@ -20,6 +21,10 @@ $set = $config->sets[$path];
     <link rel="stylesheet" href="stylesheets/app.css" />
       <script src="//use.typekit.net/xpy7ian.js"></script>
       <script>try{Typekit.load();}catch(e){}</script>
+      <script>
+          var hpx = "<?=$_SESSION["v2"]?>";
+
+      </script>
   </head>
   <body>
    <header id="header">
@@ -36,6 +41,7 @@ $set = $config->sets[$path];
            <a href="http://facebook.com/hellephotography">Facebook</a>
            <a href="http://instagram.com">Instagram</a>
        </nav>
+       <a class="home" href="/"></a>
    </header>
    <section>
        <h1><?= $set->title;?><span><?= $set->subtitle;?></span></h1>
@@ -44,26 +50,34 @@ $set = $config->sets[$path];
    <section>
        <?
        echo file_get_contents("data/".$set->id.".html");
+
        ?>
    </section>
    <footer>
        <div class="left" id="contact">
-           <form>
-            <h3>Ota yhteyttä</h3>
-            <input type="email" name="email" value="" placeholder="Sähköposti" />
-            <textarea name="message" placeholder="Viestisi"></textarea>
-            <input type="hidden" name="v1" value="23oi4dslf"/>
-            <input type="hidden" name="v2" value=""/>
-            <input type="hidden" name="s1" value=""/>
-            <input type="hidden" name="js1" value=""/>
-            <input type="hidden" name="kb1" value=""/>
-            <a href="#" id="sendForm">Lähetä</a>
+           <form action="sendForm.php" method="get" class="ok">
+                <h3>Ota yhteyttä</h3>
+                <input type="email" id="email" name="email" value="" placeholder="Sähköposti" />
+                <textarea name="message" placeholder="Viestisi"></textarea>
+                <input type="hidden" name="v1" value="23oi4dslf"/>
+                <input type="hidden" name="v2" value="2309lksdf"/>
+                <input type="hidden" name="s1" value="sddfs"/>
+                <input type="hidden" name="js1" value="--W--"/>
+                <input type="hidden" name="ie1" value="sdfdxv!!!"/>
+                <input type="hidden" name="ta1" value="22123d"/>
+                <input type="hidden" name="c1" value="asda"/>
+                <a href="#" id="sendForm">Lähetä</a>
+                <a href="#" class="overlay"></a>
+               <p class="send-status status-sending">Lähetetään...</p>
+               <p class="send-status status-sent">Viesti lähetetty!</p>
+               <p class="send-status status-error">Viestin lähetys epäonnistui. Yritä uudelleen!</p>
            </form>
+
            <h3>Kuvaaja</h3>
            <div class="photographer">
                <p>Niko Helle</p>
-               <p>niko@hellephotography.com</p>
-               <p>050-3606274</p>
+               <p class="parse-data" data-p1="-niko-" data-p2="-helle-" data-p3="-@-" data-p4="-photography-" data-p5="-.com-">x@hellephotography.com</p>
+               <p class="parse-data" data-p1="-0-" data-p2="-50-" data-p3="-3606-" data-p4="-274-" data-p5="--">+3585050515252</p>
            </div>
        </div>
        <div class="right" id="prices">

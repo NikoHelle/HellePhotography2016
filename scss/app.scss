@@ -138,7 +138,14 @@ header{
       }
     }
   }
-
+  a.home{
+    position: absolute;
+    left:50%;
+    margin: -25px;
+    width: 50px;
+    height: 100%;
+    top:0;
+  }
 
 }
 
@@ -535,7 +542,9 @@ footer{
   form{
     width:100%;
     float: left;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
+    position: relative;
+    padding-bottom: 3em;
     input,textarea{
       width: 100%;
       float: right;
@@ -548,7 +557,7 @@ footer{
       height: 100px;
       resize: none;
     }
-    a{
+    a#sendForm{
       display: inline-block;
       border-radius: 10%;
       margin-bottom: 1em;
@@ -563,7 +572,44 @@ footer{
       padding: 10px;
       clear: both;
     }
+    a.overlay{
+      z-index: 20;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      display: none;
+    }
+    p.send-status{
+      display: none;
+      position: absolute;
+      width: 100%;
+      bottom:1em;
+      right: 0;
+    }
+    &.sending{
+      a.overlay{
+        @include opacity(0.5);
+        display: block;
+        background: #fff;
+      }
+      p.send-status.status-sending{
+        display: inline-block;
+      }
+    }
+    &.sent{
+      p.send-status.status-sent{
+        display: inline-block;
+      }
+    }
+    &.error{
+      p.send-status.status-error{
+        display: inline-block;
+      }
+    }
   }
+
   .photographer{
     width:100%;
     float: left;
@@ -572,6 +618,9 @@ footer{
     background-position: 100% 50%;
     background-repeat: no-repeat;
     padding-right: 120px;
+    p.parse-data{
+      display: none;
+    }
   }
 }
 
