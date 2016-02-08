@@ -1,105 +1,59 @@
-define("ImageController",["jquery"],
-    function($){
+define("ImageController",["jquery","underscore","events","beacon","Utils"],
+    function($,_,events,beacon,Utils){
         var ImageController = function(images,options){
 
             if(!images || !images.length) return;
             var defaults = {
                 thresholdTop:100,
                 thresholdBottom:400,
-                interval:150,
                 loadClass:"loading",
                 base64Image: "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
             }
 
-            this.lastScroll = false;
-            this.window = $(window);
-            this._id = false;
-
             this.options = $.extend({},defaults,options);
-
-            if(!window.requestAnimationFrame) {
-
-                var vendors = ['ms', 'moz', 'webkit', 'o'];
-                for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-                    window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
-                    window.cancelAnimationFrame =
-                        window[vendors[x]+'CancelAnimationFrame'] || window[vendors[x]+'CancelRequestAnimationFrame'];
-                }
-
-                if (!window.requestAnimationFrame) {
-                    var lastFrameTime = 0;
-                    window.requestAnimationFrame = function(callback, element) {
-                        var currTime = new Date().getTime();
-                        var timeToCall = Math.max(0, 16 - (currTime - lastFrameTime));
-                        var id = window.setTimeout(function() { callback(currTime + timeToCall); },
-                            timeToCall);
-                        lastFrameTime = currTime + timeToCall;
-                        return id;
-                    };
-                }
-
-                if (!window.cancelAnimationFrame) {
-                    window.cancelAnimationFrame = function(id) {
-                        clearTimeout(id);
-                    };
-                }
-
-            }
-            var self = this;
             this.images = images;
-            this._id = requestAnimationFrame(function(){self.onFrame()});
-            this.window.on("scroll",function(){self.onScroll()})
-            //???this.window.on("touchmove",function(){self.onScroll()})
+            this.isRetina = Utils.isRetina()
+            this.imageSize = false
+
+            events.addListener(beacon.THROTTLED_SCROLL_EVENT,this.onScroll,this)
+            events.addListener(beacon.RESIZE_EVENT,this.resolveImageSize,this)
+            this.resolveImageSize()
+            this.onScroll()
 
         }
 
-
-        ImageController.prototype.onFrame = function(){
+        ImageController.prototype.onScroll = function(e,data){
+            var topPos = beacon.scrollY;
+            var topBottom = topPos + beacon.windowHeight;
+            topPos -= this.options.thresholdTop;
+            topBottom += this.options.thresholdBottom;
 
             var self = this;
-            var time = Date.now();
-            if(!this.lastScroll || (time-this.lastScroll > this.options.interval)) {
 
-                var topPos = this.window.scrollTop();
-                var topBottom = topPos + this.window.height();
-                topPos -= this.options.thresholdTop;
-                topBottom += this.options.thresholdBottom;
-                this.lastScroll = false;
-
-                this.images.each(function(){
-                    var img = $(this);
-                    var top = img.offset().top;
-                    var imgEl = $(".lazyload",img);
-                    //check if top is inside viewport + threshold
-                    if(top>topBottom) {
-                        self.unloadImage(imgEl);
-                        return;
-                    }
-                    if(top<=topBottom && top>=topPos){
-                        self.loadImage(imgEl);
-                        return;
-                    }
-                    //check if bottom is inside viewport + threshold
-                    var bottom = top+img.height();
-                    if(bottom<topPos) {
-                        self.unloadImage(imgEl);
-                        return;
-                    }
-                    if(bottom<=topBottom && bottom>=topPos){
-                        self.loadImage(imgEl);
-                        return;
-                    }
-
-                  })
-            }
-            requestAnimationFrame(function(){self.onFrame()});
+            this.images.each(function() {
+                var img = $(this);
+                var top = img.offset().top;
+                var imgEl = $(".lazyload", img);
+                if (top > topBottom) {
+                    self.unloadImage(imgEl);
+                    return;
+                }
+                if (top <= topBottom && top >= topPos) {
+                    self.loadImage(imgEl);
+                    return;
+                }
+                //check if bottom is inside viewport + threshold
+                var bottom = top + img.height();
+                if (bottom < topPos) {
+                    self.unloadImage(imgEl);
+                    return;
+                }
+                if (bottom <= topBottom && bottom >= topPos) {
+                    self.loadImage(imgEl);
+                    return;
+                }
+            });
         }
-
-        ImageController.prototype.onScroll = function(){
-            this.lastScroll = Date.now();
-
-        }
-
 
         ImageController.prototype.loadImage = function(img){
             if(this.isImageLoaded(img)) return;
@@ -109,6 +63,11 @@ define("ImageController",["jquery"],
             var src = img.data("img-src");
             //console.log("src:"+src)
             if(!src) return;
+            var url =  src.split("_b.jpg");
+            if(url.length>1){
+                var suffix = this.imageSize ? "_"+this.imageSize : "";
+                src = url[0]+suffix+".jpg";
+            }
             img.on("load",function(){
                 self.onLoad(img);
             });
@@ -168,6 +127,40 @@ define("ImageController",["jquery"],
             return false;
 
         }
+
+        ImageController.prototype.resolveImageSize = function(contentType, elementSize) {
+            var ww = beacon.windowWidth;
+            console.log("ww:"+ww)
+            var i,size,len = this.windowSizes.length;
+            size = 3;
+            for(i=0;i<len;i++){
+                if(this.windowSizes[i] > ww && i){
+                    console.log("this.windowSizes[i]:"+this.windowSizes[i])
+                    size = i-1;
+                    break;
+                }
+            }
+
+            if(this.isRetina) size = Math.min(size++,len-1);
+
+            this.imageSize = this.imageSizes[size];
+
+        }
+
+        ImageController.prototype.imageSizes=  ["t","m","n",false,"z","c","b"];
+        ImageController.prototype.windowSizes= [0,240,320,400,640,800,9999];
+        ImageController.prototype.SIZE_SQUARE_SHORT = "s";
+        ImageController.prototype.SIZE_LARGE_SQUARE_SHORT= "q";
+        ImageController.prototype.SIZE_THUMBNAIL_SHORT = "t";
+        ImageController.prototype.SIZE_SMALL_SHORT = "?";
+        ImageController.prototype.SIZE_SMALL_240_SHORT = "m";
+        ImageController.prototype.SIZE_SMALL_320_SHORT = "n";
+        ImageController.prototype.SIZE_MEDIUM_SHORT = false;
+        ImageController.prototype.SIZE_MEDIUM_640_SHORT = "z";
+        ImageController.prototype.SIZE_MEDIUM_800_SHORT = "c";
+        ImageController.prototype.SIZE_LARGE_SHORT = "b";
+        ImageController.prototype.SIZE_LARGE_1600_SHORT = "??";
+        ImageController.prototype.SIZE_ORIGINAL_SHORT = "o";
 
         return ImageController;
     }
