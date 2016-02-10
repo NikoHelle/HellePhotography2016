@@ -28,7 +28,7 @@ $config->sets["lapset"]->id = "lapset";
 $config->sets["lapset"]->path = "lapset";
 $config->sets["lapset"]->title = "Lapsikuvaus";
 $config->sets["lapset"]->subtitle = "on kuvaajan parasta aikaa!";
-$config->sets["lapset"]->description = "<p>Kuvaan paljon 1-vuotiaita, joita hyvin harvoin ujostuttaa ja aina löytyy jotain millä heidät saa hymyilemään. Viimeistään saippuakuplakone saa silmät loistamaan ja iloiset ilmeet jokaiseen kuvaan!</p>";
+$config->sets["lapset"]->description = "<p>Kuvaan paljon 1-vuotiaita, joita hyvin harvoin ujostuttaa ja aina löytyy jotain millä heidät saa hymyilemään. Viimeistään saippuakuplakone saa silmät loistamaan ja iloiset ilmeet jokaiseen kuvaan! <a href='https://facebook.com/hellephotography' target='_blank'>Facebook-sivultani</a> saat tietoa erityisistä <strong>lapsikuvauspäivistä</strong>, jolloin on reilu alennus kuvauksista. Kannattaa siis likettää sitä!</p>";
 
 $config->sets["koirat"] = (object) array();
 $config->sets["koirat"]->setId = "72157649851892598";

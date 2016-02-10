@@ -26,7 +26,7 @@ $set = $config->sets[$path];
 
       </script>
   </head>
-  <body>
+  <body class="page-<?=$set->id;?>">
    <header id="header">
        <nav class="main">
            <a href="maailma">Maailma</a>
@@ -43,16 +43,18 @@ $set = $config->sets[$path];
        </nav>
        <a class="home" href="/"></a>
    </header>
-   <section>
+   <section class="info">
        <h1><?= $set->title;?><span><?= $set->subtitle;?></span></h1>
        <?= $set->description;?>
    </section>
-   <section>
-       <?
-       echo file_get_contents("data/".$set->id.".html");
-
-       ?>
-   </section>
+   <?php
+     if($path != "etusivu") {
+         echo "<section class='images'>";
+         echo file_get_contents("data/" . $set->id . ".html");
+         echo "</section>";
+     }
+    echo file_get_contents("data/etusivu.html");
+   ?>
    <footer>
        <div class="left" id="contact">
            <form action="sendForm.php" method="get" class="ok">
