@@ -64,7 +64,7 @@ a, a:hover, a:active, a:focus,input:focus,textarea:focus {
 
 }
 
-p,input,textarea{
+p,input,textarea,label,footer a{
   @include baseFont;
   font-size: 1.3em;
   line-height: 1.5em;
@@ -83,6 +83,7 @@ header{
   width: 100%;
   background-color: #fff;
   margin: 15px 0;
+  position: relative;
 
   nav{
     float: left;
@@ -148,11 +149,11 @@ header{
   }
   a.home{
     position: absolute;
-    left:50%;
-    margin: -25px;
-    width: 50px;
+    left: 50%;
+    margin-left: -60px;
+    width: 120px;
     height: 100%;
-    top:0;
+    top: 0;
   }
 
 }
@@ -608,25 +609,23 @@ footer{
   .right{
     padding-left: 20px;
     padding-bottom: 60px;
-  }
-  .logo{
-    position: absolute;
-    left: 50%;
-    margin-left: 20px;
-    bottom: 0;
-    text-decoration: none;
-    display: block;
-    width: 100px;
-    img{
-      width: 100%;
-      height:auto;
+    .logo{
+      text-decoration: none;
+      display: block;
+      width: 100px;
+      margin-top: 1em;
+      img{
+        width: 100%;
+        height:auto;
+      }
     }
   }
+
   .divider{
     position: absolute;
-    top:60px;
+    top:85px;
     left: 50%;
-    bottom: 0;
+    bottom: 8em;
     width: 1px;
     background: #000;
   }
@@ -647,20 +646,30 @@ footer{
   form{
     width:100%;
     float: left;
-    margin-bottom: 1em;
+    margin-bottom: 0;
     position: relative;
-    padding-bottom: 3em;
-    input,textarea{
+    padding-bottom: 5em;
+    input,textarea,label{
       width: 100%;
       float: right;
       max-width: 400px;
       margin-bottom: 1em;
       border: 1px solid #000;
       padding: 4px 8px;
+      clear: both;
     }
     textarea{
       height: 100px;
       resize: none;
+    }
+    label{
+      border:none;
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+    input:placeholder-shown,textarea:placeholder-shown {
+      border-color:#bbb;
+      color:#000;
     }
     a#sendForm{
       display: inline-block;
@@ -682,7 +691,7 @@ footer{
       position: absolute;
       top: 0;
       left: 0;
-      bottom: 0;
+      bottom: 4em;
       right: 0;
       display: none;
     }
@@ -695,16 +704,23 @@ footer{
     }
     &.sending{
       a.overlay{
-        @include opacity(0.5);
+        @include opacity(0.8);
         display: block;
         background: #fff;
       }
+    }
+    &.sending{
       p.send-status.status-sending{
         display: inline-block;
       }
     }
     &.sent{
       p.send-status.status-sent{
+        display: inline-block;
+      }
+    }
+    &.invalid{
+      p.send-status.status-invalid{
         display: inline-block;
       }
     }
@@ -723,9 +739,18 @@ footer{
     background-position: 100% 50%;
     background-repeat: no-repeat;
     padding-right: 120px;
-    p.parse-data{
-      display: none;
+    a{
+      color:#000;
+      font-size: 1.3em;
+      line-height: 1.5em;
+      margin-bottom: 1em;
+      display: inline-block;
     }
+  }
+  p.copyright{
+    width: 100%;
+    text-align: center;
+    font-size: 1.1em;
   }
 }
 
@@ -747,7 +772,12 @@ a.scroll-nav{
   border-radius: 10px;
   font-size: 15px;
   border: 1px solid #bbb;
-  @include opacity(0.8);
+  @include opacity(0);
+  @include transition-property(opacity);
+  @include transition-duration(1s);
+  &.active{
+    @include opacity(0.8);
+  }
 }
 
 body{
@@ -764,6 +794,9 @@ body{
       background-position: 50% 0%;
       background-repeat: no-repeat;*/
       padding: 20px 0 0;
+    }
+    div.submenu, div.submenu section{
+      max-width: 9999px;
     }
   }
 }
@@ -844,6 +877,10 @@ body{
         padding-left: 7%;
       }
     }
+    a.home{
+      margin-left: -40px;
+      width: 80px;
+    }
   }
   section{
     &.info {
@@ -851,18 +888,20 @@ body{
         font-size: 5em;
         width: 100%;
         padding-bottom: 0;
+        text-align: left;
         span {
           position: relative;
           top: auto;
           left: auto;
-          padding-left: 1em;
+          padding-left: 0.4em;
           font-size: 0.6em;
+          vertical-align: baseline;
+          width: auto;
         }
       }
       p {
         width: 100%;
         float: left;
-        margin-bottom: 2em;
       }
     }
     &.menu{
@@ -884,7 +923,8 @@ body{
     }
 
     .imageContainer.full-width{
-      padding: 20px;
+      padding: 0;
+      background: none !important;
     }
   }
   footer{
@@ -901,20 +941,9 @@ body{
       .img {
         @include transition-property(transform);
         @include transition-duration(1s);
-        @include transition-delay(0.2s);
       }
     }
     &:nth-child(2n) {
-      a:hover{
-        h1{
-          margin-left:-20px;
-        }
-        .img{
-          @include transform2d(translate(20px,0));
-        }
-      }
-    }
-    &:nth-child(2n+1) {
       a:hover{
         h1{
           margin-left:20px;
@@ -924,13 +953,85 @@ body{
         }
       }
     }
+    &:nth-child(2n+1) {
+      a:hover{
+        h1{
+          margin-left:-20px;
+        }
+        .img{
+          @include transform2d(translate(20px,0));
+        }
+      }
+    }
   }
 }
 @media screen and (max-width:640px){
+  header{
+    background-position: 20px 50%;
+    nav{
+      width: 100% !important;
+      text-align: right;
+      padding:0 !important;
+      a{
+        font-size: 1.4em;
+        margin: 0 .8em 0 0;
+        float:none;
+      }
+      &.main{
+        margin-top: 4px;
+      }
+      &.contact{
+        a{
+          font-size: 1.1em;
+          float: none;
+        }
+      }
+    }
+    a.home{
+      left: 20px;
+      margin-left: 0;
+    }
+  }
+  section.info{
+    h1{
+      span {
+        width: 100%;
+        &:before {
+          content: '';
+          display: block;
+          width: 100%;
+          height: 1px;
+          overflow: hidden;
+        }
+      }
+    }
+    h1,p{
+      padding-left: 0;
+      text-align: center;
+    }
+  }
+  section.divider{
+    padding-top: 30px;
+    margin-top: 10px;
+  }
+  section.menu{
+    a h1{
+      font-size:4em !important;
+    }
+  }
+  body.page-etusivu{
+    section.menu{
+      a h1{
+        font-size:7em !important;
+      }
+    }
+  }
   @import "submenu";
   footer{
     margin-top: 20px;
+    margin-bottom: 10px;
     padding: 40px 20px;
+
     .left,.right{
       width: 100%;
       h3,a,p{
@@ -943,11 +1044,11 @@ body{
       margin-bottom: 40px;
       form{
         text-align: center;
-        input,textarea{
+        input,textarea,label{
           float: none !important;
           margin-left: auto;
           margin-right: auto;
-          width: 400px;
+          width: 80%;
           max-width: 999px;
           display: block;
         }
@@ -955,12 +1056,57 @@ body{
     }
     .right {
       padding-left: 0 !important;
+      padding-bottom: 30px;
+      .logo{
+        margin: 0 auto;
+      }
     }
     .divider{
       display: none;
     }
-    .logo{
-      left:0;
+    .photographer{
+      background: none;
+      padding-right: 0;
+      p,a{
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}
+@media screen and (max-width:450px) {
+  header {
+    margin-top: 10px;
+    background-position: 95% 50%;
+    background-size: 20%;
+    nav {
+      a {
+        font-size: 1.4em;
+        margin: 0 .8em 0 0;
+        float: left;
+        clear: both;
+      }
+      &.main {
+        padding-left: 20px !important;
+        width: 40% !important;
+        float: left;
+        margin-top: 0;
+      }
+      &.contact {
+        width: 60% !important;
+        margin-top: 2.7em;
+        float: left;
+        a {
+          font-size: 1.1em;
+          float: left;
+        }
+      }
+    }
+    a.home {
+      left: auto;
+      right: 0;
+      width: 120px;
+      margin-left: 0;
     }
   }
 }
@@ -990,6 +1136,28 @@ body.page-lapset,body.page-koirat,body.page-haat,body.page-potretit,body.page-ma
 }
 body.page-lapset{
   section.menu.lapset{
+    display: none;
+  }
+}
+body.page-koirat{
+  section.menu.koirat{
+    display: none;
+  }
+}
+body.page-haat{
+  section.menu.haat{
+    display: none;
+  }
+}
+
+body.page-potretit{
+  section.menu.potretit{
+    display: none;
+  }
+}
+
+body.page-maailma{
+  section.menu.maailma{
     display: none;
   }
 }

@@ -1,5 +1,5 @@
-define("GoogleTracker",["jquery","underscore","events","beacon","Utils"],
-    function($,_,events,beacon,Utils){
+define("GoogleTracker",["jquery","underscore","events","beacon","Utils","AppData"],
+    function($,_,events,beacon,Utils,appData){
         var GoogleTracker = function(options){
 
             this.documentHeight = 0
@@ -8,10 +8,28 @@ define("GoogleTracker",["jquery","underscore","events","beacon","Utils"],
             events.addListener(beacon.RESIZE_EVENT,this.onResize,this)
             this.onResize()
             this.onScroll()
+            $("a[href*=#]").click(_.bind(this.onClick,this));
 
         }
 
+        GoogleTracker.prototype.onClick = function(e) {
+            e.preventDefault();
+            window._e = e;
+            target = $(e.currentTarget);
+            if (!target.length) return;
+
+            target = target.attr("href");
+            if (!target) return;
+
+            target = target.replace(/#/g,"");
+
+            this.send("click","inner-click",target);
+        }
+
         GoogleTracker.prototype.onScroll = function(e,data) {
+            if(appData.scrollAnimationActive){
+                return false
+            }
             var topPos = beacon.scrollY;
             var topBottom = topPos + beacon.windowHeight;
             var perc = topBottom/documentHeight

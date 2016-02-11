@@ -1,12 +1,12 @@
-define("FormController",["jquery","underscore","events"],
-    function($,_,events){
+define("FormController",["jquery","underscore","events","Utils"],
+    function($,_,events,Utils){
         var FormController = function(){
             this.form = $("form");
             this.textarea = $("textarea",this.form);
             this.email = $("#email",this.form);
 
-            //this.email.on("focus change", _.bind(this.inputEvent,this));
-            //this.textarea.on("focus change", _.bind(this.textAreaEvent,this));
+            this.email.on("focus change", _.bind(this.inputEvent,this));
+            this.textarea.on("focus change", _.bind(this.textAreaEvent,this));
 
             this.url = "lib/sendMail.php";
             this.xhr = false;
@@ -29,20 +29,24 @@ define("FormController",["jquery","underscore","events"],
             if(this.xhr) return;
             var _this = this;
             var postData ={}
-            postData.v1 = window.hpx;
-            postData.v2 = "";
-            postData.email = this.email.val();
-            postData.message = this.textarea.val();
-            //postData.ie1 = $("input[name='ie1']", this.form).val("");
-            //postData.ta1 = $("input[name='ta1']", this.form).val("");
+            postData.v2 = window.hpx;
+            postData.v1 = "";
+            postData.email = ""+this.email.val();
+            postData.message = ""+this.textarea.val();
+            postData.ie1 = ""+$("input[name='ie1']", this.form).val();
+            postData.ta1 = ""+$("input[name='ta1']", this.form).val();
 
-            this.form.addClass("sending");
+            if(!Utils.validateEmail(postData.email) || postData.message.length<20){
+                this.form.addClass("invalid");
+                return
+            }
+
+            this.form.removeClass("sent error invalid").addClass("sending");
 
             window._postData = postData;
             this.xhr = $.ajax({
                 url: this.url,
                 type: 'POST',
-                dataType: 'text',
                 cache: false,
                 data:postData,
                 success:function(data) {
@@ -59,7 +63,20 @@ define("FormController",["jquery","underscore","events"],
             console.log(success+":"+data);
             this.form.removeClass("sending");
             this.xhr = false;
+            var successResponse = data.indexOf("success=true") != -1
+            var vResponse = data.indexOf("v=") != -1
+            var aResponse = data.indexOf("a=") != -1
+            if(!success || !successResponse || vResponse || !aResponse){
+                this.form.addClass("error");
+            }
+            else{
+                this.form.addClass("sent");
+                this.email.val("");
+                this.textarea.val("");
+            }
+
         }
+
         return FormController;
     }
 );

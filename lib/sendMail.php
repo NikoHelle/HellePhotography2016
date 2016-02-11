@@ -12,6 +12,9 @@ $textAreaEvent = isset($_POST["ta1"]) ? $_POST["ta1"] : 0;
 $session_v1 = isset($_SESSION["v1"]) ? $_SESSION["v1"] : 0;
 $session_v2 = isset($_SESSION["v2"]) ? $_SESSION["v2"] : 0;
 $session_form_value = isset($_POST["s1"]) ? $_POST["s1"] : 0;
+$sender_email = isset($_POST["email"]) ? $_POST["email"] : 0;
+$message = isset($_POST["message"]) ? $_POST["message"] : 0;
+
 
 if($no_value || $no_value != $session_v1){
     die("success=true&v=2");
@@ -21,20 +24,29 @@ if(!$must_value || $must_value != $session_v2){
     die("success=true&v=2");
 }
 
-$_POST["email"] = "niko.helle@hellephotography.com";
+if($inputEvent != "change" && $inputEvent != "focus"){
+    die("success=true&v=3");
+}
+
+if($textAreaEvent != "change" && $textAreaEvent != "focus"){
+    die("success=true&v=3");
+}
+
+
+#$_POST["email"] = "niko.helle@hellephotography.com";
 
 $recepient_email = "niko.helle@hyperactive.fi";
 $recepient_name = "niko helle";
 $sender_name = "Webform";
-$sender_email = $_POST["email"];
 
 
-function checkEmailAddress($email,$ignore) {
+
+function checkEmailAddress($email) {
     if(preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/", $email)) return true;
     return false;
 }
 
-if(checkEmailAddress($sender_email, FILTER_VALIDATE_EMAIL) === FALSE) die("success=false&error=EMAIL&message=".urlencode("Anna sähköpostiosoitteesi"));
+if(strlen($message) < 20 || filter_var($sender_email, FILTER_VALIDATE_EMAIL) === FALSE) die("success=false&error=EMAIL&message=".urlencode("Anna sähköpostiosoitteesi:".$sender_email."message:".strlen($message)));
 
 require_once('class.phpmailer.php');
 
@@ -43,18 +55,14 @@ $mail->IsMail(); // telling the class to use SendMail transport
 
 try {
 	
-	//$mail->AddReplyTo('no-reply@bsag.fi', 'First Last');
 	$mail->AddAddress(utf8_decode($recepient_email), utf8_decode($recepient_name));
 	$mail->SetFrom(utf8_decode($sender_email), utf8_decode($sender_name));
-	// $mail->AddReplyTo('name@yourdomain.com', 'First Last');
 
-	$msg = "sdfslk"; //$_POST["msg"];
-
-	$mail->MsgHTML($msg);
+	$mail->MsgHTML($message);
 
 	#$mail->Send();
 
-    die("success=true&v=1"); //Boring error messages from anything else!
+    die("success=true&a=1"); //Boring error messages from anything else!
 
 } catch (phpmailerException $e) {
   die("success=false&error=MAILER&message=".urlencode($e->errorMessage())); //Pretty error messages from PHPMailer

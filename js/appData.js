@@ -1,0 +1,5 @@
+define("AppData",[],
+    function(){
+        return {}
+    }
+);

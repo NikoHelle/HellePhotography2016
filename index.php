@@ -11,12 +11,16 @@ else{
 }
 $set = $config->sets[$path];
 ?>
-
 <!doctype html>
-<html class="no-js" lang="en">
+<!--[if lt IE 10 ]>
+<html class="no-js ie9" lang="fi">
+<![endif]-->
+<!--[if !IE]>-->
+<html class="no-js" lang="fi">
+<!--<![endif]-->
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <title>Helle Photography</title>
     <link rel="stylesheet" href="stylesheets/app.css" />
       <script src="//use.typekit.net/xpy7ian.js"></script>
@@ -67,8 +71,10 @@ $set = $config->sets[$path];
        <div class="left" id="contact">
            <form action="sendForm.php" method="get" class="ok">
                 <h3>Ota yhteyttä</h3>
-                <input type="email" id="email" name="email" value="" placeholder="Sähköposti" />
-                <textarea name="message" placeholder="Viestisi"></textarea>
+                <label for="email">Sähköpostiosoite</label>
+                <input type="email" id="email" name="email" value="" placeholder="...johon lähetän vastaukseni" />
+                <label for="email">Viesti</label>
+                <textarea name="message" placeholder="...jonka haluat kertoa"></textarea>
                 <input type="hidden" name="v1" value="23oi4dslf"/>
                 <input type="hidden" name="v2" value="2309lksdf"/>
                 <input type="hidden" name="s1" value="sddfs"/>
@@ -78,6 +84,7 @@ $set = $config->sets[$path];
                 <input type="hidden" name="c1" value="asda"/>
                 <a href="#" id="sendForm">Lähetä</a>
                 <a href="#" class="overlay"></a>
+               <p class="send-status status-invalid">Täytä kaikki kentät!</p>
                <p class="send-status status-sending">Lähetetään...</p>
                <p class="send-status status-sent">Viesti lähetetty!</p>
                <p class="send-status status-error">Viestin lähetys epäonnistui. Yritä uudelleen!</p>
@@ -86,30 +93,27 @@ $set = $config->sets[$path];
            <h3>Kuvaaja</h3>
            <div class="photographer">
                <p>Niko Helle</p>
-               <p class="parse-data" data-p1="-niko-" data-p2="-helle-" data-p3="-@-" data-p4="-photography-" data-p5="-.com-">x@hellephotography.com</p>
-               <p class="parse-data" data-p1="-0-" data-p2="-50-" data-p3="-3606-" data-p4="-274-" data-p5="--">+3585050515252</p>
+               <a href="mailto:" class="parse-data" data-p1="#niko#" data-p2="#.helle#" data-p3="#@#" data-p4="#hellephotography#" data-p5="#.com#">x@hellephotography.com</a>
+               <p class="parse-data" data-p1="#0#" data-p2="#50 " data-p3="#3606 #" data-p4="#274#" data-p5="#">+3585050515252</p>
            </div>
        </div>
        <div class="right" id="prices">
            <h3>Hinnasto</h3>
            <p>
                Studiokuvauksen hinta on <strong>150€</strong>, johon kuuluu puolitoista tuntia kuvausaikaa ja <strong>12</strong> finalisoitua kuvaa. Nämä kuvat saat itse valita studiossa otettujen joukosta, joita on tavallisesti <strong>150-300</strong> - riippuen mallin paikallaan pysymisestä. :)
-               Kuvien finalisoinnissa säädetään värit ja valaistus sekä korjataan esimerkiksi kuolat, taustan epätasaisuudet ja muut asiat, jotka eivät kuulu kuvaan. RESOLUUTIO, DIGI
+               Kuvien finalisoinnissa säädetään värit ja valaistus sekä korjataan esimerkiksi kuolat, taustan epätasaisuudet ja muut asiat, jotka eivät kuulu kuvaan.
            </p>
-           <p>
-               Kuvaan mielelläni myös studion ulkopuolella ja kalustoni on liikuteltavissa minne tahansa.
-           </p>
-           <p>
-               Hääkuvausten hinta vaihtelee kuvaustyyppien mukaan. Portrettien ottaminen on järjestelyiden ja jälkikäsittelyn kannalta aikaavievintä, joten ne ovat siksi kallein osuus. Koko päivän kuvaus (10h) on <strong>900€</strong> ja pelkkä kirkko + portretit ovat <strong>500€</strong>.
-           </p>
-           <p> Hinnat sisältävät arvonlisäveron 24%.</p>
+           <p>Saat kuvat digitaalisina täydessä resoluutiossa toimitettuna sekä zippinä että galleriana, josta kuvat voi hakea milloin vain ja jakaakin.</p>
+           <p>Kuvaan mielelläni myös studion ulkopuolella ja kalustoni on liikuteltavissa minne tahansa. Studio- ja miljöökuvauksissa on aina tyytyväisyystakuu.</p>
+           <p>Hääkuvausten hinta vaihtelee kuvaustyyppien mukaan. Portrettien ottaminen on järjestelyiden ja jälkikäsittelyn kannalta aikaavievintä, joten ne ovat siksi kallein osuus. Koko päivän kuvaus (10h) on <strong>900€</strong> ja pelkkä kirkko + portretit ovat <strong>500€</strong>.</p>
+           <p>Hinnat sisältävät arvonlisäveron 24%.</p>
            <p><strong>Ota yhteyttä ja varaa aika rakkaittesi ikuistamiseksi!</strong></p>
-           RAHAT TAKAs
-           <h1>Copyright</h1>
+           <p>Terveisin</p>
+           <a href="#header" class="logo"><img src="img/sprites/logo_text_bw.png" alt="Helle Photography"/></a>
 
        </div>
        <div class="divider"></div>
-       <a href="#header" class="logo"><img src="img/sprites/logo_text_bw.png" alt="Helle Photography"/></a>
+       <p class="copyright">Kaikki sivuston aineisto on tekijänoikeuden alaista ja sen julkaisu, osittainenkaan, ilman valokuvaajien lupaa on kielletty. Kaikki kuvat ja materiaalit &copy; Helle Photography.</p>
 
    </footer>
    <a href="#header" class="scroll-nav nav-up">&#8679;</a>

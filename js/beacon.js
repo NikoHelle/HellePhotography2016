@@ -48,7 +48,7 @@ define("beacon",["jquery","events","underscore","Utils"],
 
             if(sy != this.scrollY){
                 this.lastScrollEvent = Date.now();
-                console.log("scroll y:"+sy);
+                //console.log("scroll y:"+sy);
                 events.trigger(this.SCROLL_EVENT,{y:this.scrollY})
             }
 
@@ -64,7 +64,7 @@ define("beacon",["jquery","events","underscore","Utils"],
 
             this.ft = this.lastFrameEvent ? dn-this.lastFrameEvent : 0;
 
-            events.trigger(this.FRAME_EVENT,{y:this.scrollY,frameTime:this.ft})
+            events.trigger(this.FRAME_EVENT,{y:this.scrollY,frameTime:this.ft,time:dn})
             //console.log("ft:"+this.ft);
             this.lastFrameEvent = dn
 
