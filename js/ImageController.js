@@ -82,7 +82,7 @@ define("ImageController",["jquery","underscore","events","beacon","Utils"],
            // if(!this.isImageLoaded(img)) return;
             if(!img.data("loading") && !img.data("loaded")) return;
             img.off("load");
-            console.log("unloaded:"+img.attr("src"))
+            //console.log("unloaded:"+img.attr("src"))
             img.attr("src",this.options.base64Image);
             img.closest(".imageContainer").attr("style","");
             //img.removeClass("loading");
@@ -130,12 +130,12 @@ define("ImageController",["jquery","underscore","events","beacon","Utils"],
 
         ImageController.prototype.resolveImageSize = function(contentType, elementSize) {
             var ww = beacon.windowWidth;
-            console.log("ww:"+ww)
+            //console.log("ww:"+ww)
             var i,size,len = this.windowSizes.length;
             size = 3;
             for(i=0;i<len;i++){
                 if(this.windowSizes[i] > ww && i){
-                    console.log("this.windowSizes[i]:"+this.windowSizes[i])
+                    //console.log("this.windowSizes[i]:"+this.windowSizes[i])
                     size = i-1;
                     break;
                 }

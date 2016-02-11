@@ -32,7 +32,7 @@ if($textAreaEvent != "change" && $textAreaEvent != "focus"){
     die("success=true&v=3");
 }
 #$_POST["email"] = "niko.helle@hellephotography.com";
-$recepient_email = "niko.helle@hyperactive.fi";
+$recepient_email = "niko.helle@hellephotography.com";
 $recepient_name = "niko helle";
 $sender_name = "Webform";
 
@@ -48,7 +48,7 @@ if(strlen($message) < 20 || filter_var($sender_email, FILTER_VALIDATE_EMAIL) ===
 require_once('class.phpmailer.php');
 
 $mail = new PHPMailer(true); // the true param means it will throw exceptions on errors, which we need to catch
-$mail->IsMail(); // telling the class to use SendMail transport
+//$mail->IsMail(); // telling the class to use SendMail transport
 
 try {
 

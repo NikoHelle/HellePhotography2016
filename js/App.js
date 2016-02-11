@@ -1,7 +1,7 @@
 define("App",["jquery","ImageController","events","beacon","FormController","ScrollAnimator","GoogleTracker","AppData"],
     function($,ImageController,events,beacon,FormController,ScrollAnimator,GoogleTracker,appData){
         var App = function(){
-            console.log("hello app")
+            //console.log("hello app")
 
             //eventHandler.addEventListener(EditorPanel.EVENT_ADD_OBJECT,this.onAddObject,this);
             this.imageController = new ImageController($("section > div.imageContainer"));
@@ -36,7 +36,7 @@ define("App",["jquery","ImageController","events","beacon","FormController","Scr
                 path = path.split("#")[0]
             }
 
-            console.log("path:"+path);
+            //console.log("path:"+path);
 
             $("a[href="+path+"]").addClass("selected");
 

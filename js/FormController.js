@@ -48,7 +48,7 @@ define("FormController",["jquery","underscore","events","Utils","AppData"],
 
             this.form.removeClass("sent error invalid sent").addClass("sending");
 
-            window._postData = postData;
+            //window._postData = postData;
             this.xhr = $.ajax({
                 url: this.url,
                 type: 'POST',
@@ -65,7 +65,7 @@ define("FormController",["jquery","underscore","events","Utils","AppData"],
 
         }
         FormController.prototype.ajaxResponse = function(success,data) {
-            console.log(success+":"+data);
+            //console.log(success+":"+data);
             this.form.removeClass("sending");
             this.xhr = false;
             var successResponse = data.indexOf("success=true") != -1
