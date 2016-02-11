@@ -1,5 +1,5 @@
-define("App",["jquery","ImageController","events","beacon","FormController","ScrollAnimator"],
-    function($,ImageController,events,beacon,FormController,ScrollAnimator){
+define("App",["jquery","ImageController","events","beacon","FormController","ScrollAnimator","GoogleTracker","AppData"],
+    function($,ImageController,events,beacon,FormController,ScrollAnimator,GoogleTracker,appData){
         var App = function(){
             console.log("hello app")
 
@@ -7,6 +7,8 @@ define("App",["jquery","ImageController","events","beacon","FormController","Scr
             this.imageController = new ImageController($("section > div.imageContainer"));
             this.formController = new FormController();
             this.scrollAnimator= new ScrollAnimator();
+            appData.googleTracker= new GoogleTracker();
+
 
             $(".parse-data").each(function(index,element){
                 var s = ""

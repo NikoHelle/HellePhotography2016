@@ -65,7 +65,7 @@ try {
 
     $mail->Send();
 
-    $filename = "../data/contacts/".mktime()."_".$sender_email.".txt";
+    $filename = "../data/contacts/".time()."_".$sender_email.".txt";
 
     file_put_contents($filename,$HTML);
 

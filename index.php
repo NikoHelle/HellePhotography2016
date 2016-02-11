@@ -90,7 +90,7 @@ $image = $config->meta->siteUrl.$set->metaImage;
                 <input type="hidden" name="ie1" value="sdfdxv!!!"/>
                 <input type="hidden" name="ta1" value="22123d"/>
                 <input type="hidden" name="c1" value="asda"/>
-                <a href="#" id="sendForm">Lähetä</a>
+                <a href="/send/form" id="sendForm">Lähetä</a>
                 <a href="#" class="overlay"></a>
                <p class="send-status status-invalid">Täytä kaikki kentät!</p>
                <p class="send-status status-sending">Lähetetään...</p>

@@ -1,5 +1,5 @@
-define("FormController",["jquery","underscore","events","Utils"],
-    function($,_,events,Utils){
+define("FormController",["jquery","underscore","events","Utils","AppData"],
+    function($,_,events,Utils,appData){
         var FormController = function(){
             this.form = $("form");
             this.textarea = $("textarea",this.form);
@@ -36,12 +36,17 @@ define("FormController",["jquery","underscore","events","Utils"],
             postData.ie1 = ""+$("input[name='ie1']", this.form).val();
             postData.ta1 = ""+$("input[name='ta1']", this.form).val();
 
+
+
             if(!Utils.validateEmail(postData.email) || postData.message.length<20){
                 this.form.addClass("invalid");
+                appData.googleTracker.send("form","send-invalid",postData.email);
                 return
             }
 
-            this.form.removeClass("sent error invalid").addClass("sending");
+            appData.googleTracker.send("form","sending",postData.email);
+
+            this.form.removeClass("sent error invalid sent").addClass("sending");
 
             window._postData = postData;
             this.xhr = $.ajax({
@@ -68,11 +73,13 @@ define("FormController",["jquery","underscore","events","Utils"],
             var aResponse = data.indexOf("a=") != -1
             if(!success || !successResponse || vResponse || !aResponse){
                 this.form.addClass("error");
+                appData.googleTracker.send("form","send-error",data);
             }
             else{
                 this.form.addClass("sent");
                 this.email.val("");
                 this.textarea.val("");
+                appData.googleTracker.send("form","send-success",data);
             }
 
         }
