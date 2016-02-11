@@ -76,14 +76,15 @@ define("ScrollAnimator",["jquery","underscore","events","beacon","Utils","AppDat
             this.duration = Math.min(1000,this.duration)
             this.target =  target
 
-            window._sc = this
-
+            //window._sc = this
+            /*
             console.log('this.distance:'+this.distance);
             console.log('this.startTime:'+this.startTime);
             console.log('this.duration:'+this.duration);
             console.log('this.startY:'+this.startY);
             console.log('this.targetY:'+this.targetY);
             console.log('y:'+y);
+            */
 
             appData.scrollAnimationActive = true
 

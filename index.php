@@ -113,7 +113,7 @@ $image = $config->meta->siteUrl.$set->metaImage;
            </p>
            <p>Saat kuvat digitaalisina täydessä resoluutiossa toimitettuna sekä zippinä että galleriana, josta kuvat voi hakea milloin vain ja jakaakin.</p>
            <p>Kuvaan mielelläni myös studion ulkopuolella ja kalustoni on liikuteltavissa minne tahansa. Studio- ja miljöökuvauksissa on aina tyytyväisyystakuu.</p>
-           <p>Hääkuvausten hinta vaihtelee kuvaustyyppien mukaan. Portrettien ottaminen on järjestelyiden ja jälkikäsittelyn kannalta aikaavievintä, joten ne ovat siksi kallein osuus. Koko päivän kuvaus (10h) on <strong>900€</strong> ja pelkkä kirkko + potretit ovat <strong>500€</strong>.</p>
+           <p>Hääkuvausten hinta vaihtelee kuvaustyyppien mukaan. Potrettien ottaminen on järjestelyiden ja jälkikäsittelyn kannalta aikaavievintä, joten ne ovat siksi kallein osuus. Koko päivän kuvaus (10h) on <strong>900€</strong> ja pelkkä kirkko + potretit ovat <strong>500€</strong>.</p>
            <p>Hinnat sisältävät arvonlisäveron 24%.</p>
            <p><strong>Ota yhteyttä ja varaa aika rakkaittesi ikuistamiseksi!</strong></p>
            <p>Terveisin</p>

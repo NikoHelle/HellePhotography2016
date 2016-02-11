@@ -14,7 +14,7 @@ define("GoogleTracker",["jquery","underscore","events","beacon","Utils","AppData
 
         GoogleTracker.prototype.onClick = function(e) {
             e.preventDefault();
-            window._e = e;
+            //window._e = e;
             target = $(e.currentTarget);
             if (!target.length) return;
 
@@ -32,7 +32,7 @@ define("GoogleTracker",["jquery","underscore","events","beacon","Utils","AppData
             }
             var topPos = beacon.scrollY;
             var topBottom = topPos + beacon.windowHeight;
-            var perc = topBottom/documentHeight
+            var perc = topBottom/this.documentHeight
             var perc10 = Math.round(perc*10)*10
             this.send("scroll","position-"+perc10,"",perc*1000)
         }
