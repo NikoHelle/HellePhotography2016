@@ -8,7 +8,7 @@ define("FormController",["jquery","underscore","events","Utils"],
             this.email.on("focus change", _.bind(this.inputEvent,this));
             this.textarea.on("focus change", _.bind(this.textAreaEvent,this));
 
-            this.url = "lib/sendMail.php";
+            this.url = "lib/sendForm.php";
             this.xhr = false;
 
             $("a#sendForm").on("click",_.bind(this.send,this));

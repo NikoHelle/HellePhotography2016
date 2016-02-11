@@ -1,7 +1,8 @@
 <?php
 include_once "lib/session.php";
 include_once "lib/config.php";
-
+$url = $config->meta->siteUrl;
+$title = $config->meta->title;
 if(isset($_REQUEST["path"])){
     $path = $_REQUEST["path"];
 
@@ -9,19 +10,26 @@ if(isset($_REQUEST["path"])){
 else{
     $path = "etusivu";
 }
+
 $set = $config->sets[$path];
+$url.= "/".$set->path;
+$title.= " - ".$set->title;
+$description.= $set->metaDescription;
+$image = $config->meta->siteUrl.$set->metaImage;
 ?>
 <!doctype html>
-<!--[if lt IE 10 ]>
-<html class="no-js ie9" lang="fi">
-<![endif]-->
-<!--[if !IE]>-->
 <html class="no-js" lang="fi">
-<!--<![endif]-->
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-    <title>Helle Photography</title>
+      <meta property="og:url" content="<?=$url;?>" />
+      <meta property="og:type" content="article" />
+      <meta property="og:title" content="<?=$title;?>" />
+      <meta property="og:site_name" content="<?=$config->meta->siteName;?>" />
+      <meta property="og:description" content="<?=$description;?>" />
+      <meta property="og:image" content="<?=$image;?>" />
+      <meta property="og:locale" content="fi_FI" />
+      <title>Helle Photography</title>
     <link rel="stylesheet" href="stylesheets/app.css" />
       <script src="//use.typekit.net/xpy7ian.js"></script>
       <script>try{Typekit.load();}catch(e){}</script>
@@ -32,7 +40,7 @@ $set = $config->sets[$path];
       <!-- Google Analytics -->
       <script>
           window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-          ga('create', 'UA-35779743-1', 'auto');
+          ga('create', 'UA-73674720-1', 'auto');
           ga('send', 'pageview');
       </script>
       <script async src='//www.google-analytics.com/analytics.js'></script>
