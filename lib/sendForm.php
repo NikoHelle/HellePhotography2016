@@ -58,18 +58,18 @@ try {
 
     $HTML = "<p>Kiitos viestistäsi! Tämä on automaattinen vastaus ja vastaan henkilökohtaisesti mahdollisimman pian!</p><p>Terveisin,<br>Niko Helle</p>";
     $HTML .= "<p>Alkuperäinen viesti:</p>";
-    $HTML .= preg_replace("/\r\n|\r|\n/",'<br/>',$message);
+    $HTML .= "<p>".preg_replace("/\r\n|\r|\n/",'<br/>',$message)."</p>";
 
-    $mail->Subject("Kiitos yhteydenotostasi!");
+    $mail->Subject = "Kiitos yhteydenotostasi!";
     $mail->MsgHTML($HTML);
 
     $mail->Send();
 
-    $filename = "../data/contacts/".microtime()."_".$sender_email.".txt";
+    $filename = "../data/contacts/".mktime()."_".$sender_email.".txt";
 
     file_put_contents($filename,$HTML);
 
-    die("success=true&a=1"); //Boring error messages from anything else!
+    die("success=true&a=1");
 
 } catch (phpmailerException $e) {
     die("success=false&error=MAILER&message=".urlencode($e->errorMessage())); //Pretty error messages from PHPMailer

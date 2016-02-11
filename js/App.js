@@ -25,6 +25,19 @@ define("App",["jquery","ImageController","events","beacon","FormController","Scr
 
             this.topScroller = $("a.nav-up");
 
+            var path = window.location.href.split("/");
+            path = path.pop();
+            if(path.indexOf("?")){
+                path = path.split("?")[0]
+            }
+            if(path.indexOf("#")){
+                path = path.split("#")[0]
+            }
+
+            console.log("path:"+path);
+
+            $("a[href="+path+"]").addClass("selected");
+
             events.addListener(beacon.THROTTLED_SCROLL_EVENT,this.onScroll,this)
             this.onScroll()
 

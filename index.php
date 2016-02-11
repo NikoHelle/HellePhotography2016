@@ -58,8 +58,8 @@ $image = $config->meta->siteUrl.$set->metaImage;
        <nav class="contact">
            <a href="#prices">Hinnasto</a>
            <a href="#contact">Ota yhteyttä</a>
-           <a href="http://facebook.com/hellephotography">Facebook</a>
-           <a href="http://instagram.com">Instagram</a>
+           <a href="http://facebook.com/hellephotography" target="_blank">Facebook</a>
+           <a href="http://instagram.com/hellephotography" target="_blank">Instagram</a>
        </nav>
        <a class="home" href="/"></a>
    </header>
@@ -108,7 +108,7 @@ $image = $config->meta->siteUrl.$set->metaImage;
        <div class="right" id="prices">
            <h3>Hinnasto</h3>
            <p>
-               Studiokuvauksen hinta on <strong>150€</strong>, johon kuuluu puolitoista tuntia kuvausaikaa ja <strong>12</strong> finalisoitua kuvaa. Nämä kuvat saat itse valita studiossa otettujen joukosta, joita on tavallisesti <strong>150-300</strong> - riippuen mallin paikallaan pysymisestä. :)
+               Studiokuvauksen hinta on <strong>149€</strong>, johon kuuluu puolitoista tuntia kuvausaikaa ja <strong>12</strong> finalisoitua kuvaa. Nämä kuvat saat itse valita studiossa otettujen joukosta, joita on tavallisesti <strong>150-300</strong> - riippuen mallin paikallaan pysymisestä. :)
                Kuvien finalisoinnissa säädetään värit ja valaistus sekä korjataan esimerkiksi kuolat, taustan epätasaisuudet ja muut asiat, jotka eivät kuulu kuvaan.
            </p>
            <p>Saat kuvat digitaalisina täydessä resoluutiossa toimitettuna sekä zippinä että galleriana, josta kuvat voi hakea milloin vain ja jakaakin.</p>
@@ -121,7 +121,7 @@ $image = $config->meta->siteUrl.$set->metaImage;
 
        </div>
        <div class="divider"></div>
-       <p class="copyright">Kaikki sivuston aineisto on tekijänoikeuden alaista ja sen julkaisu, osittainenkaan, ilman valokuvaajien lupaa on kielletty. Kaikki kuvat ja materiaalit &copy; Helle Photography.</p>
+       <p class="copyright">Kaikki sivuston aineisto on tekijänoikeuden alaista ja sen julkaisu, osittainenkaan, ilman valokuvaajan lupaa on kielletty. Kaikki kuvat ja materiaalit &copy; Helle Photography.</p>
 
    </footer>
    <a href="#header" class="scroll-nav nav-up">&#8679;</a>

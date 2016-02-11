@@ -1,0 +1,27 @@
+/* line 8, ../scss/submenu.scss */
+section.menu a h1 {
+  text-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;
+  right: 0 !important;
+  left: 0 !important;
+  text-align: center !important;
+  width: 100%;
+  font-size: 7em;
+  color: #fff;
+  margin-top: 0.2em;
+}
+/* line 18, ../scss/submenu.scss */
+section.menu a h6 {
+  position: relative;
+  width: 100% !important;
+  left: auto !important;
+  right: auto !important;
+  text-align: center !important;
+  top: auto !important;
+  padding: 10px 0 20px;
+}
+/* line 27, ../scss/submenu.scss */
+section.menu a .img {
+  width: 100%;
+  margin: 0 auto;
+  float: none !important;
+}

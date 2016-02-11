@@ -10,13 +10,13 @@ $text-color:#000;
 @mixin uiSprite{
   /*background:transparent url(../images/ui.png) 0 0 no-repeat;*/
 }
-
+/*
 @mixin hashtagsFont{
   font-family: "phoreuscherokee",sans-serif;
   font-style: italic;
   font-weight: 300;
 }
-
+*/
 @mixin headingFont{
   font-family: "leander-script-pro",cursive;
   font-style: normal;
@@ -29,14 +29,14 @@ $text-color:#000;
   font-weight: 400;*/
   font-family: "ff-enzo-web",sans-serif;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
   text-rendering:optimizeLegibility;
 }
 
 @mixin baseFont{
   font-family: "ff-enzo-web",sans-serif;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 600;
   text-rendering:optimizeLegibility;
 }
 
@@ -66,8 +66,10 @@ a, a:hover, a:active, a:focus,input:focus,textarea:focus {
 
 p,input,textarea,label,footer a{
   @include baseFont;
-  font-size: 1.3em;
+  font-size: 1.4em;
   line-height: 1.5em;
+}
+p a{
 
 }
 strong{
@@ -93,17 +95,14 @@ header{
       @include navFont;
       text-transform: uppercase;
       text-decoration: none;
-      color: #CEBD2E;
       color: #000;
       font-size: 1.4em;
       line-height: 1em;
       position: relative;
-      float: left;
-      /* text-shadow: rgba(0, 0, 0, 0.34) 1px 1.732px 2px; */
       padding: 4px 0;
       display: inline-block;
       text-align: center;
-      @include text-shadow(rgba(0, 0, 0, 0.1) 0px 0px 2px);
+      @include text-shadow(rgba(0, 0, 0, 1) 0px 0px 0px);
       float: right;
       margin: 0 1em;
       border-bottom: 1px solid #fff;
@@ -180,10 +179,9 @@ section{
   h1{
     @include headingFont;
     font-size: 7em;
-    color: #E0D252;
-    color: #666;
+    color: #000;
     float: left;
-    @include text-shadow(rgba(0, 0, 0, 0.2) -1px 3px 1px);
+    @include text-shadow(rgba(0, 0, 0, 0.2) -1px 6px 4px);
     position: relative;
     padding: 20px 10px 40px;
     span{
@@ -192,13 +190,13 @@ section{
       position: absolute;
       top: 64%;
       left: 38%;
+      display: inline-block;
     }
   }
 
   p{
     padding: 0 2%;
     margin-top: 1em;
-    color: #CEBD2E;
     color: #000;
     a{
       color:#000;
@@ -244,6 +242,7 @@ section{
         right: 0;
         box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
       }
+      /*
       .hashtags{
         width: 100%;
         position: absolute;
@@ -283,7 +282,7 @@ section{
           }
         }
 
-      } //.hashtags
+      } //.hashtags*/
     } //.img
 
     .overlay{
@@ -294,7 +293,7 @@ section{
       bottom:0;
       right:0;
       @include opacity(0.4);
-      background: #000;
+      background: #fff;
     }
     .loadIndicator{
       @include transition-property(opacity);
@@ -378,6 +377,7 @@ section{
           padding-top: 150%;
         }
       }
+      /*
       .hashtagsxxx{
         position: relative;
         width: 100%;
@@ -402,11 +402,10 @@ section{
             font-size: 1.4em;
           }
         }
-      }
+      }*/
     }
     &.imgRight{
       .img{float:right;}
-      .hashtagsxxx{left:0;right: auto;}
     }
     &.whiteBorder{
       .img img{
@@ -497,8 +496,8 @@ section{
         z-index: 99;
       }
       .overlay{
-        @include opacity(0.4);
-        background: #000;
+        @include opacity(0.5);
+        background: #fff;
 
       }
     }
@@ -522,7 +521,7 @@ section{
         margin-top: 0.1em;
         color: #000;
         z-index: 10;
-        text-shadow: rgba(0, 0, 0, 0.2) -1px 6px 4px;
+        @include text-shadow(rgba(0, 0, 0, 0.2) -1px 6px 4px);
         @include transform2d(translate(0, -50%));
       }
       .img {
@@ -580,7 +579,9 @@ section{
     display: none;
   }
   &.info{
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    float: left;
 
   }
 } //section
@@ -794,6 +795,8 @@ body{
       background-position: 50% 0%;
       background-repeat: no-repeat;*/
       padding: 20px 0 0;
+      margin-bottom: 20px;
+      margin-top: 0;
     }
     div.submenu, div.submenu section{
       max-width: 9999px;
@@ -884,10 +887,12 @@ body{
   }
   section{
     &.info {
+      margin-bottom: 20px;
       h1 {
         font-size: 5em;
         width: 100%;
-        padding-bottom: 0;
+        padding-bottom: 14px;
+        padding-left: 0;
         text-align: left;
         span {
           position: relative;
@@ -902,6 +907,7 @@ body{
       p {
         width: 100%;
         float: left;
+        padding-left: 0;
       }
     }
     &.menu{
