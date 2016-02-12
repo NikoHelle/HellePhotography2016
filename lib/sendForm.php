@@ -50,18 +50,28 @@ require_once('class.phpmailer.php');
 $mail = new PHPMailer(true); // the true param means it will throw exceptions on errors, which we need to catch
 //$mail->IsMail(); // telling the class to use SendMail transport
 
+$mail->isSMTP();                                      // Set mailer to use SMTP
+//$mail->Host = 'mail.hellephotography.com';  // Specify main and backup SMTP servers
+$mail->Host = 'box288.bluehost.com';  // Specify main and backup SMTP servers
+$mail->SMTPAuth = true;                               // Enable SMTP authentication
+$mail->Username = 'niko.helle@hellephotography.com';                 // SMTP username
+$mail->Password = 'Jedi_2011';                           // SMTP password
+$mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+$mail->Port = 465;
+//https://github.com/PHPMailer/PHPMailer
 try {
 
     $mail->AddAddress(utf8_decode($recepient_email), utf8_decode($recepient_name));
     $mail->AddAddress(utf8_decode($sender_email), utf8_decode($sender_name));
-    $mail->SetFrom(utf8_decode("noreply@hellephotography.com"), utf8_decode($sender_name));
+    $mail->SetFrom(utf8_decode("niko.helle@hellephotography.com"), utf8_decode($sender_name));
 
-    $HTML = "<p>Kiitos viestistäsi! Tämä on automaattinen vastaus ja vastaan henkilökohtaisesti mahdollisimman pian!</p><p>Terveisin,<br>Niko Helle</p>";
-    $HTML .= "<p>Alkuperäinen viesti:</p>";
-    $HTML .= "<p>".preg_replace("/\r\n|\r|\n/",'<br/>',$message)."</p>";
+    $HTML = "<p>Kiitos viestistäsi! Tämä on automaattinen vastaus, mutta vastaan henkilökohtaisesti mahdollisimman pian!</p><p>Terveisin,<br>Niko Helle</p>";
+    $HTML .= "<p>Alkuperäinen viestisi:</p>";
+    $HTML .= "<p>".preg_replace("/\r\n|\r|\n/",'<br/>',utf8_decode($message))."</p>";
 
     $mail->Subject = "Kiitos yhteydenotostasi!";
     $mail->MsgHTML($HTML);
+    $mail->isHTML(true);
 
     $mail->Send();
 
