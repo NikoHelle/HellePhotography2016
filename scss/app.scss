@@ -40,6 +40,14 @@ $text-color:#000;
   text-rendering:optimizeLegibility;
 }
 
+@mixin clearfix{
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
 html{
   font-size:62.5%;
   width:100%;
@@ -581,7 +589,7 @@ section{
   &.info{
     margin-bottom: 40px;
     margin-top: 20px;
-    float: left;
+
 
   }
 } //section
@@ -816,27 +824,13 @@ body{
     }
   }
   section{
+    @include clearfix;
     h1{
       font-size: 5em;
     }
     &.info{
       width: 98%;
       margin-left: 1%;
-      h1{
-        width:33%;
-        span{
-          top: 55%;
-          left: 33%;
-          width: 200%;
-          text-align: left;
-        }
-      }
-      p{
-        margin-top: 0;
-        left:33%;
-        width: 67%;
-        text-align: left;
-      }
     }
     &.menu{
       a{
@@ -857,8 +851,37 @@ body{
 
     }
   }
+  body.page-koirddat section.info h1{
+    padding-bottom: 60px;
+  }
 }
 @media screen and (min-width:801px){
+  body.page-koiddrat section.info {
+    h1 {
+    }
+  }
+  section.info{
+    h1{
+      width:33%;
+      span{
+        top: 55%;
+        left: 33%;
+        width: 200%;
+        text-align: left;
+        right: 0;
+        width: auto;
+        text-align: left;
+        left: auto;
+      }
+    }
+    p{
+      margin-top: 0;
+      left:33%;
+      width: 67%;
+      text-align: left;
+    }
+  }
+
   section p{
     position: absolute;
     left: 50%;

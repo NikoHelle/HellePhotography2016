@@ -57,8 +57,8 @@ $config->sets["koirat"]->path = "koirat";
 $config->sets["koirat"]->metaImage = "/img/meta_images_koirat.jpg";
 $config->sets["koirat"]->title = "Koirakuvaus";
 $config->sets["koirat"]->subtitle = "on perheenjäsenen ikuistamista";
-$config->sets["koirat"]->description = "<p>Koirien kuvaamisesta pidän todella paljon! He eivät ujostele, näytä mielestään kaameilta tai yritä duckfacea. Ja jos näyttävät tyhmältä, se on hyvä tässä tapauksessa. Toisaalta heillä on omat ikävät puolensa, kuten karkaaminen. Koirakuvauksissa omistajalla on myös tärkeä rooli! Kuvaajana olen kärsivällinen ja osaan käsitellä koiria sekä päästää ääniä, joilla korvat nousee ja ilme kirkastuu! Kannattaa likettää <a href='https://facebook.com/hellephotography' target='_blank'>Facebook-sivujani</a>, jotta saat tietoa erityisistä <strong>lapsikuvauspäivistä</strong>!</p>";
-$config->sets["koirat"]->metaDescription = "Koirien kuvaamisesta pidän todella paljon, sillä he eivät ujostele, näytä mielestään kaameilta tai yritä duckfacea. Kuvaajana olen kärsivällinen ja osaan käsitellä koiria sekä päästää ääniä, joilla korvat nousee ja ilme kirkastuu! ";
+$config->sets["koirat"]->description = "<p>Koirien kuvaamisesta pidän todella paljon! He eivät ujostele, näytä mielestään kaameilta tai yritä duckfacea. Ja jos näyttävät tyhmältä, se on hyvä tässä tapauksessa. Kuvaajana olen kärsivällinen ja osaan käsitellä koiria sekä päästää ääniä, joilla korvat nousee ja ilme kirkastuu! Kannattaa likettää <a href='https://facebook.com/hellephotography' target='_blank'>Facebook-sivujani</a>, jotta saat tietoa erityisistä <strong>koirakuvauspäivistä</strong>!</p>";
+$config->sets["koirat"]->metaDescription = "Koirien kuvaamisesta pidän todella paljon, sillä he eivät ujostele, näytä mielestään koskaan kaameilta tai yritä duckfacea. Kuvaajana olen kärsivällinen ja osaan käsitellä koiria sekä päästää ääniä, joilla korvat nousee ja ilme kirkastuu! ";
 $config->sets["koirat"]->metaDescription .= $config->sets["etusivu"]->metaDescription;
 
 $config->sets["potretit"] = (object) array();
@@ -68,8 +68,8 @@ $config->sets["potretit"]->path = "potretit";
 $config->sets["potretit"]->metaImage = "/img/meta_images_potretit.jpg";
 $config->sets["potretit"]->title = "Henkiökuvaus";
 $config->sets["potretit"]->subtitle = " on paljon enemmän kuin selfie";
-$config->sets["potretit"]->description = "<p>Tämä päivänä hyviä kuvia tarvitsee monessa paikassa ja muutenkin selfieiden sijaan kannattaa ehdottomasti ikuistaa itsesi joko yksin tai rakkaan ihmisen kanssa. Kuvauksiin voi tulla myös kaverin kanssa niin että lasku ja otetut kuvat jaetaan molemmille! Älä ujostele vaan <a href=\"#contact\">ota yhteyttä!</a></p>";
-$config->sets["potretit"]->metaDescription = "Tämä päivänä hyviä kuvia tarvitsee monessa paikassa ja muutenkin selfieiden sijaan kannattaa ehdottomasti ikuistaa itsesi joko yksin tai rakkaan ihmisen kanssa. Kuvauksiin voi tulla myös kaverin kanssa niin että lasku ja otetut kuvat jaetaan molemmille! Älä ujostele vaan ota yhteyttä!";
+$config->sets["potretit"]->description = "<p>Tänä päivänä hyviä kuvia tarvitsee monessa paikassa ja muutenkin selfieiden sijaan kannattaa ehdottomasti ikuistaa itsensä joko yksin tai rakkaan ihmisen kanssa. Kuvauksiin voi tulla myös kaverin kanssa niin että lasku ja otetut kuvat jaetaan molemmille! Älä ujostele vaan <a href=\"#contact\">ota yhteyttä!</a></p>";
+$config->sets["potretit"]->metaDescription = "Tämä päivänä hyviä kuvia tarvitsee monessa paikassa ja muutenkin selfieiden sijaan kannattaa ehdottomasti ikuistaa itsensä joko yksin tai rakkaan ihmisen kanssa. Kuvauksiin voi tulla myös kaverin kanssa niin että lasku ja otetut kuvat jaetaan molemmille! Älä ujostele vaan ota yhteyttä!";
 $config->sets["potretit"]->metaDescription .= $config->sets["etusivu"]->metaDescription;
 
 $config->sets["maailma"] = (object) array();
