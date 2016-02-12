@@ -66,10 +66,10 @@ $config->sets["potretit"]->setId = "72157663008697505";
 $config->sets["potretit"]->id = "potretit";
 $config->sets["potretit"]->path = "potretit";
 $config->sets["potretit"]->metaImage = "/img/meta_images_potretit.jpg";
-$config->sets["potretit"]->title = "Henkiökuvaus";
+$config->sets["potretit"]->title = "Henkilökuvaus";
 $config->sets["potretit"]->subtitle = " on paljon enemmän kuin selfie";
-$config->sets["potretit"]->description = "<p>Tänä päivänä hyviä kuvia tarvitsee monessa paikassa ja muutenkin selfieiden sijaan kannattaa ehdottomasti ikuistaa itsensä joko yksin tai rakkaan ihmisen kanssa. Kuvauksiin voi tulla myös kaverin kanssa niin että lasku ja otetut kuvat jaetaan molemmille! Älä ujostele vaan <a href=\"#contact\">ota yhteyttä!</a></p>";
-$config->sets["potretit"]->metaDescription = "Tämä päivänä hyviä kuvia tarvitsee monessa paikassa ja muutenkin selfieiden sijaan kannattaa ehdottomasti ikuistaa itsensä joko yksin tai rakkaan ihmisen kanssa. Kuvauksiin voi tulla myös kaverin kanssa niin että lasku ja otetut kuvat jaetaan molemmille! Älä ujostele vaan ota yhteyttä!";
+$config->sets["potretit"]->description = "<p>Hyviä kuvia tarvitaan nykypäivänä moneen tarkoitukseen ja muutenkin selfieiden sijaan kannattaa ehdottomasti ikuistaa itsensä ammattilaisen luona joko yksin tai rakkaan ihmisen kanssa. Kuvauksiin voi tulla myös kaverin kanssa jolloin lasku ja otetut kuvat jaetaan molemmille! Älä ujostele vaan <a href=\"#contact\">ota yhteyttä!</a></p>";
+$config->sets["potretit"]->metaDescription = "Hyviä kuvia tarvitaan nykypäivänä moneen tarkoitukseen ja muutenkin selfieiden sijaan kannattaa ehdottomasti ikuistaa itsensä ammattilaisen luona joko yksin tai rakkaan ihmisen kanssa. Kuvauksiin voi tulla myös kaverin kanssa jolloin lasku ja otetut kuvat jaetaan molemmille! Älä ujostele vaan ota yhteyttä!";
 $config->sets["potretit"]->metaDescription .= $config->sets["etusivu"]->metaDescription;
 
 $config->sets["maailma"] = (object) array();
@@ -79,8 +79,8 @@ $config->sets["maailma"]->path = "maailma";
 $config->sets["maailma"]->metaImage = "/img/meta_images_maailma.jpg";
 $config->sets["maailma"]->title = "Maailma";
 $config->sets["maailma"]->subtitle = "kameran silmin";
-$config->sets["maailma"]->description = "<p>Onneksi digimaailmassa saa kuvata niin paljon kun tilaa riittää muistikortilla, sillä on olemassa niin paljon upeita paikkoja kuten Islanti, Nepal, Etelä-Afrikka, Brasilia, Himalaja, NYC, Bahama, Berliini ja ihan oma Suomi, jossa on uskomattoman kaunis luonto.</p>";
-$config->sets["maailma"]->metaDescription = "Onneksi digimaailmassa saa kuvata niin paljon kun tilaa riittää muistikortilla, sillä on olemassa niin paljon upeita paikkoja kuten Islanti, Nepal, Etelä-Afrikka, Brasilia, Himalaja, NYC, Bahama, Berliini ja ihan oma Suomi, jossa on uskomattoman kaunis luonto.";
+$config->sets["maailma"]->description = "<p>Onneksi digimaailmassa saa kuvata niin paljon kuin sielu sietää ja tilaa riittää muistikortilla, sillä on olemassa niin paljon upeita paikkoja kuten Islanti, Nepal, Etelä-Afrikka, Azorit, Brasilia, Himalaja, NYC, Bahama, Berliini ja muu Euroooppa kuten ihan oma Suomemme, jossa on uskomattoman kaunis luonto.</p>";
+$config->sets["maailma"]->metaDescription = "Onneksi digimaailmassa saa kuvata niin paljon kuin sielu sietää ja tilaa riittää muistikortilla, sillä on olemassa niin paljon upeita paikkoja kuten Islanti, Nepal, Etelä-Afrikka, Azorit, Brasilia, Himalaja, NYC, Bahama, Berliini ja muu Euroooppa kuten ihan oma Suomemme, jossa on uskomattoman kaunis luonto.";
 $config->sets["maailma"]->metaDescription .= $config->sets["etusivu"]->metaDescription;
 
 $config->sets["haat"] = (object) array();

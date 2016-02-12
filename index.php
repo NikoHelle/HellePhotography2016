@@ -108,12 +108,12 @@ $image = $config->meta->siteUrl.$set->metaImage;
        <div class="right" id="prices">
            <h3>Hinnasto</h3>
            <p>
-               Studiokuvauksen hinta on <strong>149€</strong>, johon kuuluu puolitoista tuntia kuvausaikaa ja <strong>12</strong> finalisoitua kuvaa. Nämä kuvat saat itse valita studiossa otettujen joukosta, joita on tavallisesti <strong>150-300</strong> - riippuen mallin paikallaan pysymisestä. :)
+               Studiokuvauksen hinta on <strong>129€</strong>, johon kuuluu puolitoista tuntia kuvausaikaa ja <strong>12</strong> finalisoitua kuvaa. Nämä kuvat saat itse valita studiossa otettujen joukosta, joita on tavallisesti <strong>150-300</strong> - riippuen mallin paikallaan pysymisestä. :)
                Kuvien finalisoinnissa säädetään värit ja valaistus sekä korjataan esimerkiksi kuolat, taustan epätasaisuudet ja muut asiat, jotka eivät kuulu kuvaan.
            </p>
            <p>Saat kuvat digitaalisina täydessä resoluutiossa toimitettuna sekä zippinä että galleriana, josta kuvat voi hakea milloin vain ja jakaakin.</p>
            <p>Kuvaan mielelläni myös studion ulkopuolella ja kalustoni on liikuteltavissa minne tahansa. Studio- ja miljöökuvauksissa on aina tyytyväisyystakuu.</p>
-           <p>Hääkuvausten hinta vaihtelee kuvaustyyppien mukaan. Potrettien ottaminen on järjestelyiden ja jälkikäsittelyn kannalta aikaavievintä, joten ne ovat siksi kallein osuus. Koko päivän kuvaus (10h) on <strong>900€</strong> ja pelkkä kirkko + potretit ovat <strong>500€</strong>.</p>
+           <p>Hääkuvausten hinta vaihtelee kuvaustyyppien mukaan. Potrettien ottaminen on järjestelyiden ja jälkikäsittelyn kannalta aikaavievintä, joten ne ovat siksi kallein osuus. Koko päivän kuvaus (10h) on <strong>899€</strong> ja pelkkä kirkko + potretit ovat <strong>499€</strong>.</p>
            <p>Hinnat sisältävät arvonlisäveron 24%.</p>
            <p><strong>Ota yhteyttä ja varaa aika rakkaittesi ikuistamiseksi!</strong></p>
            <p>Terveisin</p>
@@ -124,7 +124,7 @@ $image = $config->meta->siteUrl.$set->metaImage;
        <p class="copyright">Kaikki sivuston aineisto on tekijänoikeuden alaista ja sen julkaisu, osittainenkaan, ilman valokuvaajan lupaa on kielletty. Kaikki kuvat ja materiaalit &copy; Helle Photography.</p>
 
    </footer>
-   <a href="#header" class="scroll-nav nav-up">&#8679;</a>
+   <a href="#header" class="scroll-nav nav-up"><span>&nbsp;</span></a>
    <script data-main="js/init" src="js/vendor/require.min.js"></script>
   </body>
 </html>
