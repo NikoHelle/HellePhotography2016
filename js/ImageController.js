@@ -1,5 +1,5 @@
-define("ImageController",["jquery","underscore","events","beacon","Utils"],
-    function($,_,events,beacon,Utils){
+define("ImageController",["jquery","underscore","events","beacon","Utils","AppData"],
+    function($,_,events,beacon,Utils,appData){
         var ImageController = function(images,options){
 
             if(!images || !images.length) return;
@@ -12,12 +12,15 @@ define("ImageController",["jquery","underscore","events","beacon","Utils"],
 
             this.options = $.extend({},defaults,options);
             this.images = images;
-            this.isRetina = Utils.isRetina()
-            this.imageSize = false
+            this.isRetina = Utils.isRetina();
+            this.imageSize = false;
+            this.imageSizeFull = false;
 
-            events.addListener(beacon.THROTTLED_SCROLL_EVENT,this.onScroll,this)
-            events.addListener(beacon.RESIZE_EVENT,this.resolveImageSize,this)
-            this.resolveImageSize()
+           // window._ic = this;
+
+            events.addListener(beacon.THROTTLED_SCROLL_EVENT,this.onScroll,this);
+            events.addListener(beacon.RESIZE_EVENT,this.resolveImageSize,this);
+            this.resolveImageSize();
             this.onScroll()
 
         }
@@ -64,17 +67,27 @@ define("ImageController",["jquery","underscore","events","beacon","Utils"],
             //console.log("src:"+src)
             if(!src) return;
             var url =  src.split("_b.jpg");
+            var size = this.imageSize;
+            var container = img.closest(".imageContainer");
+            var _this = this;
+            if(container.hasClass("full-width")){
+                size = this.imageSizeFull;
+            }
             if(url.length>1){
-                var suffix = this.imageSize ? "_"+this.imageSize : "";
+                var suffix = size ? "_"+size : "";
                 src = url[0]+suffix+".jpg";
             }
             img.on("load",function(){
                 self.onLoad(img);
             });
+            img.on("error",function(){
+                appData.googleTracker.send("image","load-error",img.attr("src"));
+                _this.unloadImage(img);
+            });
             img.attr("src",src);
             //img.addClass("loading");
             img.closest(".imageContainer").addClass("loading");
-            img.data("loading",true)
+            img.data("loading",true);
             img.data("unloaded",false)
         }
 
@@ -82,27 +95,29 @@ define("ImageController",["jquery","underscore","events","beacon","Utils"],
            // if(!this.isImageLoaded(img)) return;
             if(!img.data("loading") && !img.data("loaded")) return;
             img.off("load");
+            img.off("error");
             //console.log("unloaded:"+img.attr("src"))
             img.attr("src",this.options.base64Image);
             img.closest(".imageContainer").attr("style","");
             //img.removeClass("loading");
             //img.removeClass("loaded");
             img.closest(".imageContainer").removeClass("loading loaded");
-            img.data("loaded",false)
-            img.data("loading",false)
+            img.data("loaded",false);
+            img.data("loading",false);
             img.data("unloaded",true)
 
         }
 
         ImageController.prototype.onLoad = function(img){
             //console.log("onLoad:"+img.attr("src"));
-            container = img.closest(".imageContainer")
+            var container = img.closest(".imageContainer");
             $(".bg_img",container).attr("style","background-image:url("+img.attr("src")+");");
             img.off("load");
+            img.off("error");
             //img.removeClass("loading");
             //img.addClass("loaded");
             img.closest(".imageContainer").removeClass("loading").addClass("loaded");
-            img.data("loaded",true)
+            img.data("loaded",true);
             img.data("loading",false)
 
         }
@@ -112,7 +127,7 @@ define("ImageController",["jquery","underscore","events","beacon","Utils"],
             if(!el || !el.attr || !el.attr("src")) {return true;}
             if(el.attr("src").indexOf(";base64") != -1) return false;
             if(el.data("loaded")) return true
-            if(el.data("unloaded") || el.data("loading")) return false
+            if(el.data("unloaded") || el.data("loading")) return false;
             //if(el.get(0).tagName.toLowerCase() != "img") return true;
             var img = el.get(0);
             // IE
@@ -144,11 +159,12 @@ define("ImageController",["jquery","underscore","events","beacon","Utils"],
             if(this.isRetina) size = Math.min(size++,len-1);
 
             this.imageSize = this.imageSizes[size];
+            this.imageSizeFull = this.imageSizes[size+2] || this.imageSize;
 
         }
 
-        ImageController.prototype.imageSizes=  ["t","m","n",false,"z","c","b"];
-        ImageController.prototype.windowSizes= [0,240,320,400,640,800,9999];
+        ImageController.prototype.imageSizes=  ["t","m","n",false,"z","c","b","h","k"];
+        ImageController.prototype.windowSizes= [0,240,320,400,640,800,1200,1400,9999];
         ImageController.prototype.SIZE_SQUARE_SHORT = "s";
         ImageController.prototype.SIZE_LARGE_SQUARE_SHORT= "q";
         ImageController.prototype.SIZE_THUMBNAIL_SHORT = "t";

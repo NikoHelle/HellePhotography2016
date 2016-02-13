@@ -28,7 +28,7 @@ define("FormController",["jquery","underscore","events","Utils","AppData"],
             if(e) e.preventDefault();
             if(this.xhr) return;
             var _this = this;
-            var postData ={}
+            var postData ={};
             postData.v2 = window.hpx;
             postData.v1 = "";
             postData.email = ""+this.email.val();
@@ -69,8 +69,8 @@ define("FormController",["jquery","underscore","events","Utils","AppData"],
             this.form.removeClass("sending");
             this.xhr = false;
             var successResponse = data.indexOf("success=true") != -1
-            var vResponse = data.indexOf("v=") != -1
-            var aResponse = data.indexOf("a=") != -1
+            var vResponse = data.indexOf("v=") != -1;
+            var aResponse = data.indexOf("a=") != -1;
             if(!success || !successResponse || vResponse || !aResponse){
                 this.form.addClass("error");
                 appData.googleTracker.send("form","send-error",data);

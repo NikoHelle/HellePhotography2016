@@ -2,12 +2,12 @@ define("GoogleTracker",["jquery","underscore","events","beacon","Utils","AppData
     function($,_,events,beacon,Utils,appData){
         var GoogleTracker = function(options){
 
-            this.documentHeight = 0
-            this.body = $("body")
-            events.addListener(beacon.THROTTLED_SCROLL_EVENT,this.onScroll,this)
-            events.addListener(beacon.RESIZE_EVENT,this.onResize,this)
-            this.onResize()
-            this.onScroll()
+            this.documentHeight = 0;
+            this.body = $("body");
+            events.addListener(beacon.THROTTLED_SCROLL_EVENT,this.onScroll,this);
+            events.addListener(beacon.RESIZE_EVENT,this.onResize,this);
+            this.onResize();
+            this.onScroll();
             $("a[href*=#]").click(_.bind(this.onClick,this));
 
         }
@@ -28,17 +28,17 @@ define("GoogleTracker",["jquery","underscore","events","beacon","Utils","AppData
 
         GoogleTracker.prototype.onScroll = function(e,data) {
             if(appData.scrollAnimationActive){
-                return false
+                return false;
             }
             var topPos = beacon.scrollY;
             var topBottom = topPos + beacon.windowHeight;
-            var perc = topBottom/this.documentHeight
-            var perc10 = Math.round(perc*10)*10
-            this.send("scroll","position-"+perc10,"",perc*1000)
+            var perc = topBottom/this.documentHeight;
+            var perc10 = Math.round(perc*10)*10;
+            this.send("scroll","position-"+perc10,"",perc*1000);
         }
 
         GoogleTracker.prototype.onResize = function(e,data){
-            this.documentHeight = this.body.height()
+            this.documentHeight = this.body.height();
 
         }
 

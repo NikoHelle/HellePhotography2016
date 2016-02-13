@@ -6,21 +6,21 @@ $config->meta = (object) array();
 $config->meta->siteUrl = "http://helle.photography";
 $config->meta->title = "Helle Photography";
 $config->meta->siteName = "Helle Photography ikuistaa rakkaasi";
-$config->libPath = basename(__DIR__);
+//$config->libPath = basename(__DIR__);
 
 $config->db = (object) array();
-/**/
+/*
 $config->db->user = "root";
 $config->db->password = "root";
 $config->db->host = "localhost";
 $config->db->database = "hellephotography2016";
-
-/*
+*/
+/**/
 $config->db->user = "hellepho_user1";
 $config->db->password = "f{b5E_7!TKLU";
 $config->db->host = "localhost";
 $config->db->database = "hellepho_images_2016";
-*/
+
 $config->flickr = (object) array();
 
 $config->flickr->apiKey = "e9c2d11b4b0c9861766632f00320b128";

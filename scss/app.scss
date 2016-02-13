@@ -377,6 +377,14 @@ section{
         }
       }
     }
+    &.ratio-3-4{
+      width: 23%;
+      .img{
+        .ratioEnforcer{
+          padding-top: 150%;
+        }
+      }
+    }
     &.ratio-2-3{
       width: 23%;
       .img{
@@ -461,6 +469,12 @@ section{
     &.align-16-9-to-3-2{
       margin-top:2.5%;
     }
+    &.width-one-third{
+
+    }
+    &.width-half{
+      width:48%;
+    }
     &.force-left{
       float: left;
       clear: left;
@@ -508,6 +522,14 @@ section{
         @include opacity(0.5);
         background: #fff;
 
+      }
+      &.dark {
+        .logo{
+         background-image: url("../img/sprites/watermark_black.png");
+        }
+        .overlay{
+          background: #000;
+        }
       }
     }
   } //.imgContainer

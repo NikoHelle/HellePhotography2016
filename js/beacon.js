@@ -6,8 +6,8 @@ define("beacon",["jquery","events","underscore","Utils"],
             this.lastSentScrollY= -1;
             this.lastFrameEvent= 0;
             this.scrollY = 0;
-            this.windowWidth = 0
-            this.windowHeight= 0
+            this.windowWidth = 0;
+            this.windowHeight= 0;
 
             this.window = $(window);
 
@@ -33,11 +33,11 @@ define("beacon",["jquery","events","underscore","Utils"],
         }
 
         Beacon.prototype.onResize = function(){
-            var ww = this.window.width()
-            var wh = this.window.height()
+            var ww = this.window.width();
+            var wh = this.window.height();
             if(ww == this.windowWidth &&  wh == this.windowHeight) return;
-            this.windowWidth = ww
-            this.windowHeight = wh
+            this.windowWidth = ww;
+            this.windowHeight = wh;
             events.trigger(this.RESIZE_EVENT,{width:this.windowWidth,height:this.windowHeight})
         }
 
@@ -55,18 +55,18 @@ define("beacon",["jquery","events","underscore","Utils"],
             if(this.lastScrollEvent && this.scrollThrottle>0) {
                 var std = dn - this.lastScrollEvent;
                 if (std > this.scrollThrottle && this.lastSentScrollY != this.scrollY) {
-                    events.trigger(this.THROTTLED_SCROLL_EVENT, {y: this.scrollY})
-                    this.lastScrollEvent = false
+                    events.trigger(this.THROTTLED_SCROLL_EVENT, {y: this.scrollY});
+                    this.lastScrollEvent = false;
                     this.lastSentScrollY = this.scrollY
                 }
             }
-            this.scrollY = sy
+            this.scrollY = sy;
 
             this.ft = this.lastFrameEvent ? dn-this.lastFrameEvent : 0;
 
-            events.trigger(this.FRAME_EVENT,{y:this.scrollY,frameTime:this.ft,time:dn})
+            events.trigger(this.FRAME_EVENT,{y:this.scrollY,frameTime:this.ft,time:dn});
             //console.log("ft:"+this.ft);
-            this.lastFrameEvent = dn
+            this.lastFrameEvent = dn;
 
             this.rafId = requestAnimationFrame(this.rafCall);
         }
