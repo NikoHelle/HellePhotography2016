@@ -477,6 +477,8 @@ section{
     }
     &.width-one-third{
       width:32%;
+      margin-left:0;
+      margin-right:0;
       &.one-third-left{
         margin-left: 1%;
       }
@@ -487,6 +489,7 @@ section{
     }
     &.width-half{
       width:48%;
+
     }
     &.force-left{
       float: left;
