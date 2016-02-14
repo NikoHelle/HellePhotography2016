@@ -34,7 +34,11 @@ $flickrDB = new FlickrDB($flickr,$config->db);
 $setName = isset($_REQUEST["setName"]) ? $_REQUEST["setName"] : false;
 if(!$setName || !$config->sets[$setName]) die("no set");
 
+echo "<p>Delete old...</p>";
+$flickrDB->deleteSetPhotos($config->sets[$setName]->setId);
 echo "<p>Getting images for set ".$setName."...</p>";
+
+
 
 #$setId = "72157663923690755";
 $json = $flickr->getSetPhotos($config->sets[$setName]->setId);
@@ -68,7 +72,7 @@ foreach ($json->photoset->photo as $photo){
         $description= $description->_content;
     }
     echo("<p>description:".$description."</p>");
-    if($description && strpos($description,"hide") === 0) {
+    if($description && (strpos($description,"hidden") !== false || strpos($description,"hide") !== false)) {
         $flickrDB->deletePhoto($config->sets[$setName]->setId,$photo);
         continue;
     }

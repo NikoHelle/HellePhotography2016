@@ -19,12 +19,17 @@ define("ImageController",["jquery","underscore","events","beacon","Utils","AppDa
            // window._ic = this;
 
             events.addListener(beacon.THROTTLED_SCROLL_EVENT,this.onScroll,this);
-            events.addListener(beacon.RESIZE_EVENT,this.resolveImageSize,this);
+            events.addListener(beacon.RESIZE_EVENT,this.onResize,this);
             this.resolveImageSize();
             this.onScroll()
 
         }
 
+        ImageController.prototype.onResize = function(e,data){
+            this.resolveImageSize(e,data);
+            this.onScroll(e,data)
+
+        }
         ImageController.prototype.onScroll = function(e,data){
             var topPos = beacon.scrollY;
             var topBottom = topPos + beacon.windowHeight;
