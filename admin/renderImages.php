@@ -70,6 +70,7 @@ foreach($data as $photo){
     $photo->ratio = getImageRatio($photo->original_width,$photo->original_height);
 
     $photo->url = FlickrPhotoHA::getUrl($photo,FlickrPhotoHA::SIZE_LARGE_SHORT);
+    $photo->xlUrl = $photo->xl_source;
     $photo->classes = array();
     if(!is_string($photo->ratio)){
         $photo->ratioPerc = round((1/$photo->ratio)*10000)/100;

@@ -44,17 +44,22 @@ foreach ($json->photoset->photo as $photo){
     echo "<div>";
     echo "<img src=\"".FlickrPhotoHA::getUrl($photo,FlickrPhotoHA::SIZE_SMALL_240_SHORT)."\" />";
     $sizes = $flickr->getPhotoSize($photo);
-    #var_dump($sizes);
+    //var_dump($sizes);
     $originalSize = FlickrPhotoHA::getOriginalSize($sizes);
+    $originalSource = FlickrPhotoHA::getNamedSize(FlickrPhotoHA::SIZE_ORIGINAL,$sizes);
+    $xlSource = FlickrPhotoHA::getNamedSize(FlickrPhotoHA::SIZE_LARGE_1600,$sizes);
+    if($originalSource) $originalSource= $originalSource->source;
+    if($xlSource) $xlSource= $xlSource->source;
     $sizes = FlickrPhotoHA::sizeListToValue($sizes);
     echo("<p>Sizes:".$sizes."</p>");
     echo("<p>Id:".$photo->id."</p>");
+    echo("<p>originalSource:".$originalSource."</p>");
+    echo("<p>xlSource:".$xlSource."</p>");
     #$comments = $flickr->getPhotoComments($photo);
     $info = $flickr->getPhotoInfo($photo->id);
     $description = $info->photo->description;
 
 
-    #print_r($info);
 
     if(!$description){
         $description = "";
@@ -63,7 +68,6 @@ foreach ($json->photoset->photo as $photo){
         $description= $description->_content;
     }
     echo("<p>description:".$description."</p>");
-
     if($description && strpos($description,"hide") === 0) {
         $flickrDB->deletePhoto($config->sets[$setName]->setId,$photo);
         continue;
@@ -77,7 +81,8 @@ foreach ($json->photoset->photo as $photo){
     $photo->width = $originalSize->width;
     $photo->height = $originalSize->height;
     $photo->comments = $description;
-    $flickrDB->savePhoto($config->sets[$setName]->setId,$photo);
+    $flickrDB->savePhoto($config->sets[$setName]->setId,$photo,$originalSource,$xlSource);
+    //die("x");
     echo "</div>";
 }
 

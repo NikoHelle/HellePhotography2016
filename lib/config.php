@@ -1,5 +1,7 @@
 <?php
 
+$dev = true;
+
 $config = (object) array();
 
 $config->meta = (object) array();
@@ -9,17 +11,18 @@ $config->meta->siteName = "Helle Photography ikuistaa rakkaasi";
 //$config->libPath = basename(__DIR__);
 
 $config->db = (object) array();
-/*
-$config->db->user = "root";
-$config->db->password = "root";
-$config->db->host = "localhost";
-$config->db->database = "hellephotography2016";
-*/
-/**/
-$config->db->user = "hellepho_user1";
-$config->db->password = "f{b5E_7!TKLU";
-$config->db->host = "localhost";
-$config->db->database = "hellepho_images_2016";
+if($dev){
+    $config->db->user = "root";
+    $config->db->password = "root";
+    $config->db->host = "localhost";
+    $config->db->database = "hellephotography2016";
+}
+else{
+    $config->db->user = "hellepho_user1";
+    $config->db->password = "f{b5E_7!TKLU";
+    $config->db->host = "localhost";
+    $config->db->database = "hellepho_images_2016";
+}
 
 $config->flickr = (object) array();
 
@@ -46,8 +49,8 @@ $config->sets["lapset"]->path = "lapset";
 $config->sets["lapset"]->metaImage = "/img/meta_images_lapset.jpg";
 $config->sets["lapset"]->title = "Lapsikuvaus";
 $config->sets["lapset"]->subtitle = "on kuvaajan parasta aikaa!";
-$config->sets["lapset"]->description = "<p>Pienten lasten kuvaaminen on parasta! Kuvaan paljon 1- ja 2-vuotiaita, joita hyvin harvoin ujostuttaa. Viimeistään saippuakuplakone saa silmät loistamaan ja iloiset ilmeet jokaiseen kuvaan! <a href='https://facebook.com/hellephotography' target='_blank'>Facebook-sivultani</a> saat tietoa erityisistä <strong>lapsikuvauspäivistä</strong>, jolloin on reilu alennus kuvauksista. Kannattaa siis likettää sitä!</p>";
-$config->sets["lapset"]->metaDescription = "Pienten lasten kuvaaminen on parasta! Kuvaan paljon 1- ja 2-vuotiaita, joita hyvin harvoin ujostuttaa. Viimeistään saippuakuplakone saa silmät loistamaan ja iloiset ilmeet jokaiseen kuvaan!";
+$config->sets["lapset"]->description = "<p>Pienten lasten kuvaaminen on mahtavaa ja hauskaa! Kuvaan paljon 1- ja 2-vuotiaita, joita hyvin harvoin ujostuttaa. Viimeistään saippuakuplakone saa silmät loistamaan ja iloiset ilmeet jokaiseen kuvaan! <a href='https://facebook.com/hellephotography' target='_blank'>Facebook-sivultani</a> saat tietoa erityisistä <strong>lapsikuvauspäivistä</strong>, jolloin on reilu alennus kuvauksista. Kannattaa siis likettää sitä!</p>";
+$config->sets["lapset"]->metaDescription = "Pienten lasten kuvaaminen on mahtavaa ja hauskaa! Kuvaan paljon 1- ja 2-vuotiaita, joita hyvin harvoin ujostuttaa. Viimeistään saippuakuplakone saa silmät loistamaan ja iloiset ilmeet jokaiseen kuvaan!";
 $config->sets["lapset"]->metaDescription .= " ".$config->sets["etusivu"]->metaDescription;
 
 $config->sets["koirat"] = (object) array();

@@ -77,6 +77,9 @@ define("ImageController",["jquery","underscore","events","beacon","Utils","AppDa
                 var suffix = size ? "_"+size : "";
                 src = url[0]+suffix+".jpg";
             }
+            if(size == "h" || size=="k"){
+                src = img.data("img-xl-src");
+            }
             img.on("load",function(){
                 self.onLoad(img);
             });
@@ -175,7 +178,8 @@ define("ImageController",["jquery","underscore","events","beacon","Utils","AppDa
         ImageController.prototype.SIZE_MEDIUM_640_SHORT = "z";
         ImageController.prototype.SIZE_MEDIUM_800_SHORT = "c";
         ImageController.prototype.SIZE_LARGE_SHORT = "b";
-        ImageController.prototype.SIZE_LARGE_1600_SHORT = "??";
+        ImageController.prototype.SIZE_LARGE_1600_SHORT = "h";
+        ImageController.prototype.SIZE_LARGE = "k";
         ImageController.prototype.SIZE_ORIGINAL_SHORT = "o";
 
         return ImageController;

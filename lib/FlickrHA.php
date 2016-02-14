@@ -131,7 +131,7 @@ o	original image, either a jpg, gif or png, depending on source format
 	
 	 }
 	 
-	  public function getPhotoInfo($photoId){
+	public function getPhotoInfo($photoId){
 		
 		//$url = FlickrHA::API_GATEWAY."?".FlickrParamsHA::getPhotoSizeParams($photoId);
 		//die($url);

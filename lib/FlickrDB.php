@@ -64,13 +64,13 @@ class FlickrDB
 		$this->db->delete($sql);
 
 	}
-	public function savePhoto($setId,$photo){
+	public function savePhoto($setId,$photo,$originalSource,$xlSource){
 
 		$this->_connectDB();
 
 		$this->deletePhoto($setId,$photo);
 
-		$sql = "INSERT INTO images (set_id,id,secret,server,farm,original_secret,original_width,original_height,size_ratio, sizes,comments,added) VALUES (";
+		$sql = "INSERT INTO images (set_id,id,secret,server,farm,original_width,original_height,size_ratio, sizes,comments,original_source,xl_source,added) VALUES (";
 
 		$width = $photo->width;
 		$height = $photo->height;
@@ -80,16 +80,17 @@ class FlickrDB
 		$sql .=",".$this->db->quote($photo->secret);
 		$sql .=",".$this->db->quote($photo->server);
 		$sql .=",".$this->db->quote($photo->farm);
-		$sql .=",".$this->db->quote("");
 		$sql .=",".$width;
 		$sql .=",".$height;
 		$sql .=",".$size_ratio;
 		$sql .=",".$photo->sizes;
 		$sql .=",".$this->db->quote($photo->comments);
+		$sql .=",".$this->db->quote($originalSource);
+		$sql .=",".$this->db->quote($xlSource);
 		$sql .=", NOW()";
 
 		$sql .=")";
-		//return $sql;
+		//echo "d:".$sql;
 		$ret = $this->db->insert($sql);
 		if(!$ret) return FlickrDB::createErrorObject("error:".$this->db->error.",sql:".$sql);
 		return $ret;

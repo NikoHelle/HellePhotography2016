@@ -124,6 +124,31 @@ class FlickrPhotoHA
 		return $ret;
 
 	}
+	public static function getNamedSize($sizeName,$sizes){
+		foreach ($sizes as $size){
+			if($size->label ==$sizeName) {
+				return $size;
+			}
+
+		}
+		return false;
+
+	}
+
+	public static function getSizeList_NOT_TESTED($sizes){
+		$ret  = array();
+		foreach ($sizes as $size){
+			$source = $size->source;
+
+			$s = explode("_",$source);
+			$s = array_pop($s);
+			$ret[] = substr($s,0,1);
+
+
+		}
+		return $ret;
+
+	}
 	
 	public static function getClosestSize($photo,$size) {
      	
