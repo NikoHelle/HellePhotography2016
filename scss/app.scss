@@ -507,7 +507,7 @@ section{
         }
       }
       .logo{
-        background-image: url("../img/sprites/watermark_white.png");
+        background-image: url("../img/sprites/watermark_black.png");
         background-size: contain;
         background-position: 0% 0%;
         background-repeat: no-repeat;
@@ -523,9 +523,9 @@ section{
         background: #fff;
 
       }
-      &.dark {
+      &.dark,&.dark-logo{
         .logo{
-         background-image: url("../img/sprites/watermark_black.png");
+         background-image: url("../img/sprites/watermark_white.png");
         }
         .overlay{
           background: #000;
