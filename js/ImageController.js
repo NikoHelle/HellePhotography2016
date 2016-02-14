@@ -78,7 +78,7 @@ define("ImageController",["jquery","underscore","events","beacon","Utils","AppDa
                 src = url[0]+suffix+".jpg";
             }
             if(size == "h" || size=="k"){
-                src = img.data("img-xl-src");
+                src = img.data("img-xl-src") || src;
             }
             img.on("load",function(){
                 self.onLoad(img);

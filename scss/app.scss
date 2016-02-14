@@ -470,7 +470,14 @@ section{
       margin-top:2.5%;
     }
     &.width-one-third{
-
+      width:32%;
+      &.one-third-left{
+        margin-left: 1%;
+      }
+      &.one-third-middle{
+        margin-right: 1%;
+        margin-left: 1%;
+      }
     }
     &.width-half{
       width:48%;
@@ -529,6 +536,9 @@ section{
         }
         .overlay{
           background: #000;
+        }
+        .img{
+          border-color: #666;
         }
       }
     }
