@@ -433,6 +433,12 @@ section{
     &.no-shadow{
 
     }
+    &.width-three-fours{
+      width: 73%;
+    }
+    &.align-portrait-to-landscape{
+      margin-top: 7%;
+    }
     &.forced-ratio-16-9{
       .img{
         overflow: hidden;
@@ -530,7 +536,10 @@ section{
         background: #fff;
 
       }
-      &.dark,&.dark-logo{
+      &.dark-logo .logo{
+        background-image: url("../img/sprites/watermark_white.png");
+      }
+      &.dark{
         .logo{
          background-image: url("../img/sprites/watermark_white.png");
         }
