@@ -4,8 +4,8 @@ define("ImageController",["jquery","underscore","events","beacon","Utils","AppDa
 
             if(!images || !images.length) return;
             var defaults = {
-                thresholdTop:100,
-                thresholdBottom:400,
+                thresholdTop:300,
+                thresholdBottom:500,
                 loadClass:"loading",
                 base64Image: "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
             }
