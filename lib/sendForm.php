@@ -34,7 +34,7 @@ if($textAreaEvent != "change" && $textAreaEvent != "focus"){
 #$_POST["email"] = "niko.helle@hellephotography.com";
 $recepient_email = "niko.helle@hellephotography.com";
 $recepient_name = "niko helle";
-$sender_name = "Webform";
+$sender_name = "Helle Photography";
 
 /*
 function checkEmailAddress($email) {
