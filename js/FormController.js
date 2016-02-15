@@ -36,8 +36,6 @@ define("FormController",["jquery","underscore","events","Utils","AppData"],
             postData.ie1 = ""+$("input[name='ie1']", this.form).val();
             postData.ta1 = ""+$("input[name='ta1']", this.form).val();
 
-
-
             if(!Utils.validateEmail(postData.email) || postData.message.length<20){
                 this.form.addClass("invalid");
                 appData.googleTracker.send("form","send-invalid",postData.email);
@@ -61,8 +59,6 @@ define("FormController",["jquery","underscore","events","Utils","AppData"],
                     _this.ajaxResponse(false,errorThrown);
                 }
             });
-
-
         }
         FormController.prototype.ajaxResponse = function(success,data) {
             //console.log(success+":"+data);
@@ -81,9 +77,7 @@ define("FormController",["jquery","underscore","events","Utils","AppData"],
                 this.textarea.val("");
                 appData.googleTracker.send("form","send-success",data);
             }
-
         }
-
         return FormController;
     }
 );

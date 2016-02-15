@@ -67,10 +67,10 @@ try {
 
     $HTML = "<p>Kiitos viestistäsi! Tämä on automaattinen vastaus, mutta vastaan henkilökohtaisesti mahdollisimman pian!</p><p>Terveisin,<br>Niko Helle</p>";
     $HTML .= "<p>Alkuperäinen viestisi:</p>";
-    $HTML .= "<p>".preg_replace("/\r\n|\r|\n/",'<br/>',utf8_decode($message))."</p>";
+    $HTML .= "<p>".preg_replace("/\r\n|\r|\n/",'<br/>',$message)."</p>";
 
     $mail->Subject = "Kiitos yhteydenotostasi!";
-    $mail->MsgHTML($HTML);
+    $mail->MsgHTML(utf8_decode($HTML));
     $mail->isHTML(true);
 
     $mail->Send();

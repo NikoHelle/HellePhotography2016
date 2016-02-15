@@ -57,7 +57,7 @@ $image = $config->meta->siteUrl.$set->metaImage;
        </nav>
        <nav class="contact">
            <a href="#prices">Hinnasto</a>
-           <a href="#contact">Ota yhteyttä</a>
+           <a href="#contact">Ota&nbsp;yhteyttä</a>
            <a href="http://facebook.com/hellephotography" target="_blank">Facebook</a>
            <a href="http://instagram.com/hellephotography" target="_blank">Instagram</a>
        </nav>
@@ -101,8 +101,8 @@ $image = $config->meta->siteUrl.$set->metaImage;
            <h3>Kuvaaja</h3>
            <div class="photographer">
                <p>Niko Helle</p>
-               <a href="mailto:" class="parse-data" data-p1="#niko#" data-p2="#.helle#" data-p3="#@#" data-p4="#hellephotography#" data-p5="#.com#">x@hellephotography.com</a>
-               <p class="parse-data" data-p1="#0#" data-p2="#50 " data-p3="#3606 #" data-p4="#274#" data-p5="#">+3585050515252</p>
+               <a href="mailto:" class="parse-data" data-p1="#niko#" data-p2="#.helle#" data-p3="#@#" data-p4="#hellephotography#" data-p5="#.com#">hellephotography.com</a>
+               <p class="parse-data" data-p1="#0#" data-p2="#50 " data-p3="#3606 #" data-p4="#274#" data-p5="#">+358XXXXXXXXX</p>
            </div>
        </div>
        <div class="right" id="prices">
