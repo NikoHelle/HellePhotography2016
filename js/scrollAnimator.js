@@ -44,6 +44,9 @@ define("ScrollAnimator",["jquery","underscore","events","beacon","Utils","AppDat
             window.scrollTo(0,this.y);
             //console.log("this.y:"+this.y+", perc:"+perc+",dt:"+dt+",duration:"+this.duration)
             if(perc >= 1)this.stop();
+
+
+
         }
         ScrollAnimator.prototype.start = function(target){
             this.stop();
@@ -62,7 +65,7 @@ define("ScrollAnimator",["jquery","underscore","events","beacon","Utils","AppDat
             this.targetY = y-30
 
             if(y> this.startY){
-                this.targetY += 30
+                this.targetY += beacon.windowHeight
             }
 
             this.targetY = Math.max(0,this.targetY)
@@ -74,8 +77,6 @@ define("ScrollAnimator",["jquery","underscore","events","beacon","Utils","AppDat
             this.target =  target
 
             //window._sc = this
-
-
             /*
             console.log('this.distance:'+this.distance);
             console.log('this.startTime:'+this.startTime);

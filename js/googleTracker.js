@@ -3,9 +3,7 @@ define("GoogleTracker",["jquery","underscore","events","beacon","Utils","AppData
         var GoogleTracker = function(options){
 
             this.documentHeight = 0;
-            this.maxScrollPerc = 0;
-            this.container = $("html");
-            //hh
+            this.body = $("body");
             events.addListener(beacon.THROTTLED_SCROLL_EVENT,this.onScroll,this);
             events.addListener(beacon.RESIZE_EVENT,this.onResize,this);
             this.onResize();
@@ -36,13 +34,11 @@ define("GoogleTracker",["jquery","underscore","events","beacon","Utils","AppData
             var topBottom = topPos + beacon.windowHeight;
             var perc = topBottom/this.documentHeight;
             var perc10 = Math.round(perc*10)*10;
-            if(perc10 <= this.maxScrollPerc) return;
-            this.maxScrollPerc = perc10;
-            this.send("scroll event","position-"+perc10,"scroll-down",Math.round(perc*1000));
+            this.send("scroll","position-"+perc10,"",perc*1000);
         }
 
         GoogleTracker.prototype.onResize = function(e,data){
-            this.documentHeight = this.container.height();
+            this.documentHeight = this.body.height();
 
         }
 
