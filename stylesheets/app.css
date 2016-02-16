@@ -897,12 +897,12 @@ footer form.error p.send-status.status-error {
 /* line 788, ../scss/app.scss */
 footer .photographer {
   width: 100%;
-  float: left;
+  float: right;
   background-image: url(../img/me.jpg);
   background-size: 100px auto;
-  background-position: 100% 50%;
+  background-position: 100% 0%;
   background-repeat: no-repeat;
-  padding-right: 120px;
+  max-width: 400px;
 }
 /* line 796, ../scss/app.scss */
 footer .photographer a {
@@ -912,14 +912,18 @@ footer .photographer a {
   margin-bottom: 1em;
   display: inline-block;
 }
-/* line 804, ../scss/app.scss */
+/* line 803, ../scss/app.scss */
+footer .photographer .parse-data {
+  padding-right: 110px;
+}
+/* line 808, ../scss/app.scss */
 footer p.copyright {
   width: 100%;
   text-align: center;
   font-size: 1.1em;
 }
 
-/* line 811, ../scss/app.scss */
+/* line 815, ../scss/app.scss */
 a.scroll-nav {
   position: fixed;
   font-family: sans-serif;
@@ -949,7 +953,7 @@ a.scroll-nav {
   -webkit-transition-duration: 1s;
   transition-duration: 1s;
 }
-/* line 829, ../scss/app.scss */
+/* line 833, ../scss/app.scss */
 a.scroll-nav span {
   display: block;
   background-image: url(../img/sprites/to_top.png);
@@ -959,17 +963,17 @@ a.scroll-nav span {
   width: 100%;
   height: 100%;
 }
-/* line 842, ../scss/app.scss */
+/* line 846, ../scss/app.scss */
 a.scroll-nav.active {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
   opacity: 0.8;
 }
 
-/* line 849, ../scss/app.scss */
+/* line 853, ../scss/app.scss */
 body.page-etusivu a.scroll-nav {
   display: none;
 }
-/* line 852, ../scss/app.scss */
+/* line 856, ../scss/app.scss */
 body.page-etusivu section.info {
   /*background-image: url(../img/sprites/curles2_black.png);
   background-size: 10%;
@@ -979,68 +983,68 @@ body.page-etusivu section.info {
   margin-bottom: 20px;
   margin-top: 0;
 }
-/* line 853, ../scss/app.scss */
+/* line 857, ../scss/app.scss */
 body.page-etusivu section.info > * {
   display: none;
 }
-/* line 864, ../scss/app.scss */
+/* line 868, ../scss/app.scss */
 body.page-etusivu div.submenu, body.page-etusivu div.submenu section {
   max-width: 9999px;
 }
 
 @media screen and (max-width: 1000px) {
-  /* line 872, ../scss/app.scss */
+  /* line 876, ../scss/app.scss */
   header nav {
     padding-left: 8%;
     padding-right: 8%;
   }
-  /* line 875, ../scss/app.scss */
+  /* line 879, ../scss/app.scss */
   header nav a {
     font-size: 1.3em;
     margin: 0 0.5em;
   }
 
-  /* line 881, ../scss/app.scss */
+  /* line 885, ../scss/app.scss */
   section {
     margin-left: 1%;
     margin-right: 1%;
     width: 98%;
   }
-  /* line 885, ../scss/app.scss */
+  /* line 889, ../scss/app.scss */
   section h1 {
     font-size: 5em;
   }
-  /* line 888, ../scss/app.scss */
+  /* line 892, ../scss/app.scss */
   section.info {
     width: 96%;
     margin-left: 2%;
   }
-  /* line 894, ../scss/app.scss */
+  /* line 898, ../scss/app.scss */
   section.menu a h1, section.menu a .img {
     padding-left: 10px;
     padding-right: 10px;
   }
-  /* line 899, ../scss/app.scss */
+  /* line 903, ../scss/app.scss */
   section.menu a .img .shadow {
     left: 10px;
     right: 10px;
   }
-  /* line 907, ../scss/app.scss */
+  /* line 911, ../scss/app.scss */
   section .imageContainer.full-width {
     padding: 40px 7%;
   }
 
-  /* line 915, ../scss/app.scss */
+  /* line 919, ../scss/app.scss */
   body.page-koirddat section.info h1 {
     padding-bottom: 60px;
   }
 }
 @media screen and (min-width: 801px) {
-  /* line 925, ../scss/app.scss */
+  /* line 929, ../scss/app.scss */
   section.info h1 {
     width: 33%;
   }
-  /* line 927, ../scss/app.scss */
+  /* line 931, ../scss/app.scss */
   section.info h1 span {
     top: 55%;
     left: 33%;
@@ -1051,7 +1055,7 @@ body.page-etusivu div.submenu, body.page-etusivu div.submenu section {
     text-align: left;
     left: auto;
   }
-  /* line 938, ../scss/app.scss */
+  /* line 942, ../scss/app.scss */
   section.info p {
     margin-top: 0;
     left: 33%;
@@ -1059,7 +1063,7 @@ body.page-etusivu div.submenu, body.page-etusivu div.submenu section {
     text-align: left;
   }
 
-  /* line 946, ../scss/app.scss */
+  /* line 950, ../scss/app.scss */
   section p {
     position: absolute;
     left: 50%;
@@ -1071,34 +1075,34 @@ body.page-etusivu div.submenu, body.page-etusivu div.submenu section {
   }
 }
 @media screen and (max-width: 800px) {
-  /* line 955, ../scss/app.scss */
+  /* line 959, ../scss/app.scss */
   header {
     margin: 8px 0;
   }
-  /* line 957, ../scss/app.scss */
+  /* line 961, ../scss/app.scss */
   header nav {
     padding: 10px 8%;
   }
-  /* line 959, ../scss/app.scss */
+  /* line 963, ../scss/app.scss */
   header nav a {
     font-size: 1.1em;
     margin: 0 0.3em;
   }
-  /* line 963, ../scss/app.scss */
+  /* line 967, ../scss/app.scss */
   header nav.contact {
     padding-left: 7%;
   }
-  /* line 967, ../scss/app.scss */
+  /* line 971, ../scss/app.scss */
   header a.home {
     margin-left: -40px;
     width: 80px;
   }
 
-  /* line 973, ../scss/app.scss */
+  /* line 977, ../scss/app.scss */
   section.info {
     margin-bottom: 20px;
   }
-  /* line 975, ../scss/app.scss */
+  /* line 979, ../scss/app.scss */
   section.info h1 {
     font-size: 5em;
     width: 100%;
@@ -1106,7 +1110,7 @@ body.page-etusivu div.submenu, body.page-etusivu div.submenu section {
     padding-left: 0;
     text-align: left;
   }
-  /* line 981, ../scss/app.scss */
+  /* line 985, ../scss/app.scss */
   section.info h1 span {
     position: relative;
     top: auto;
@@ -1116,40 +1120,40 @@ body.page-etusivu div.submenu, body.page-etusivu div.submenu section {
     vertical-align: baseline;
     width: auto;
   }
-  /* line 991, ../scss/app.scss */
+  /* line 995, ../scss/app.scss */
   section.info p {
     width: 100%;
     float: left;
     padding-left: 0;
     text-align: left;
   }
-  /* line 1000, ../scss/app.scss */
+  /* line 1004, ../scss/app.scss */
   section.menu a h1 {
     font-size: 4em;
   }
-  /* line 1003, ../scss/app.scss */
+  /* line 1007, ../scss/app.scss */
   section.menu a h1, section.menu a .img {
     padding-left: 10px;
     padding-right: 10px;
   }
-  /* line 1008, ../scss/app.scss */
+  /* line 1012, ../scss/app.scss */
   section.menu a .img .shadow {
     left: 10px;
     right: 10px;
   }
-  /* line 1016, ../scss/app.scss */
+  /* line 1020, ../scss/app.scss */
   section .imageContainer.full-width {
     padding: 0;
     background: none !important;
   }
 
-  /* line 1021, ../scss/app.scss */
+  /* line 1025, ../scss/app.scss */
   footer {
     margin-top: 20px;
   }
 }
 @media screen and (min-width: 641px) {
-  /* line 1028, ../scss/app.scss */
+  /* line 1032, ../scss/app.scss */
   section.menu a h1 {
     -moz-transition-property: margin;
     -o-transition-property: margin;
@@ -1160,7 +1164,7 @@ body.page-etusivu div.submenu, body.page-etusivu div.submenu section {
     -webkit-transition-duration: 1s;
     transition-duration: 1s;
   }
-  /* line 1032, ../scss/app.scss */
+  /* line 1036, ../scss/app.scss */
   section.menu a .img {
     -moz-transition-property: -moz-transform;
     -o-transition-property: -o-transform;
@@ -1171,22 +1175,22 @@ body.page-etusivu div.submenu, body.page-etusivu div.submenu section {
     -webkit-transition-duration: 1s;
     transition-duration: 1s;
   }
-  /* line 1039, ../scss/app.scss */
+  /* line 1043, ../scss/app.scss */
   section.menu:nth-child(2n) a:hover h1 {
     margin-left: 20px;
   }
-  /* line 1042, ../scss/app.scss */
+  /* line 1046, ../scss/app.scss */
   section.menu:nth-child(2n) a:hover .img {
     -moz-transform: translate(-20px, 0);
     -ms-transform: translate(-20px, 0);
     -webkit-transform: translate(-20px, 0);
     transform: translate(-20px, 0);
   }
-  /* line 1049, ../scss/app.scss */
+  /* line 1053, ../scss/app.scss */
   section.menu:nth-child(2n+1) a:hover h1 {
     margin-left: -20px;
   }
-  /* line 1052, ../scss/app.scss */
+  /* line 1056, ../scss/app.scss */
   section.menu:nth-child(2n+1) a:hover .img {
     -moz-transform: translate(20px, 0);
     -ms-transform: translate(20px, 0);
@@ -1195,42 +1199,42 @@ body.page-etusivu div.submenu, body.page-etusivu div.submenu section {
   }
 }
 @media screen and (max-width: 640px) {
-  /* line 1060, ../scss/app.scss */
+  /* line 1064, ../scss/app.scss */
   header {
     background-position: 20px 50%;
   }
-  /* line 1062, ../scss/app.scss */
+  /* line 1066, ../scss/app.scss */
   header nav {
     width: 100% !important;
     text-align: right;
     padding: 0 !important;
   }
-  /* line 1066, ../scss/app.scss */
+  /* line 1070, ../scss/app.scss */
   header nav a {
     font-size: 1.4em;
     margin: 0 .8em 0 0;
     float: none;
   }
-  /* line 1071, ../scss/app.scss */
+  /* line 1075, ../scss/app.scss */
   header nav.main {
     margin-top: 4px;
   }
-  /* line 1075, ../scss/app.scss */
+  /* line 1079, ../scss/app.scss */
   header nav.contact a {
     font-size: 1.1em;
     float: none;
   }
-  /* line 1081, ../scss/app.scss */
+  /* line 1085, ../scss/app.scss */
   header a.home {
     left: 20px;
     margin-left: 0;
   }
 
-  /* line 1088, ../scss/app.scss */
+  /* line 1092, ../scss/app.scss */
   section.info h1 span {
     width: 100%;
   }
-  /* line 1090, ../scss/app.scss */
+  /* line 1094, ../scss/app.scss */
   section.info h1 span:before {
     content: '';
     display: block;
@@ -1238,24 +1242,24 @@ body.page-etusivu div.submenu, body.page-etusivu div.submenu section {
     height: 1px;
     overflow: hidden;
   }
-  /* line 1099, ../scss/app.scss */
+  /* line 1103, ../scss/app.scss */
   section.info h1, section.info p {
     padding-left: 0;
     text-align: center;
   }
 
-  /* line 1104, ../scss/app.scss */
+  /* line 1108, ../scss/app.scss */
   section.divider {
     padding-top: 30px;
     margin-top: 10px;
   }
 
-  /* line 1109, ../scss/app.scss */
+  /* line 1113, ../scss/app.scss */
   section.menu a h1 {
     font-size: 4em !important;
   }
 
-  /* line 1115, ../scss/app.scss */
+  /* line 1119, ../scss/app.scss */
   body.page-etusivu section.menu a h1 {
     font-size: 7em !important;
   }
@@ -1288,31 +1292,31 @@ body.page-etusivu div.submenu, body.page-etusivu div.submenu section {
     float: none !important;
   }
 
-  /* line 1121, ../scss/app.scss */
+  /* line 1125, ../scss/app.scss */
   footer {
     margin-top: 20px;
     margin-bottom: 10px;
     padding: 40px 20px;
   }
-  /* line 1126, ../scss/app.scss */
+  /* line 1130, ../scss/app.scss */
   footer .left, footer .right {
     width: 100%;
   }
-  /* line 1128, ../scss/app.scss */
+  /* line 1132, ../scss/app.scss */
   footer .left h3, footer .left a, footer .left p, footer .right h3, footer .right a, footer .right p {
     text-align: center !important;
     float: none !important;
   }
-  /* line 1133, ../scss/app.scss */
+  /* line 1137, ../scss/app.scss */
   footer .left {
     padding-right: 0;
     margin-bottom: 40px;
   }
-  /* line 1136, ../scss/app.scss */
+  /* line 1140, ../scss/app.scss */
   footer .left form {
     text-align: center;
   }
-  /* line 1138, ../scss/app.scss */
+  /* line 1142, ../scss/app.scss */
   footer .left form input, footer .left form textarea, footer .left form label {
     float: none !important;
     margin-left: auto;
@@ -1321,70 +1325,78 @@ body.page-etusivu div.submenu, body.page-etusivu div.submenu section {
     max-width: 999px;
     display: block;
   }
-  /* line 1148, ../scss/app.scss */
+  /* line 1152, ../scss/app.scss */
   footer .right {
     padding-left: 0 !important;
     padding-bottom: 30px;
   }
-  /* line 1151, ../scss/app.scss */
+  /* line 1155, ../scss/app.scss */
   footer .right .logo {
     margin: 0 auto;
   }
-  /* line 1155, ../scss/app.scss */
+  /* line 1159, ../scss/app.scss */
   footer .divider {
     display: none;
   }
-  /* line 1158, ../scss/app.scss */
+  /* line 1162, ../scss/app.scss */
   footer .photographer {
     background: none;
     padding-right: 0;
+    width: 90%;
+    max-width: 999px;
+    float: none;
+    margin: 0 auto;
   }
-  /* line 1161, ../scss/app.scss */
+  /* line 1169, ../scss/app.scss */
   footer .photographer p, footer .photographer a {
     width: 100%;
     text-align: center;
   }
+  /* line 1173, ../scss/app.scss */
+  footer .photographer .parse-data {
+    padding-right: 0;
+  }
 }
 @media screen and (max-width: 600px) {
-  /* line 1169, ../scss/app.scss */
+  /* line 1180, ../scss/app.scss */
   section .imageContainer.loaded .logo {
     width: 30px;
     height: 24px;
   }
 }
 @media screen and (max-width: 450px) {
-  /* line 1176, ../scss/app.scss */
+  /* line 1187, ../scss/app.scss */
   header {
     margin-top: 10px;
     background-position: 95% 50%;
     background-size: 20%;
   }
-  /* line 1181, ../scss/app.scss */
+  /* line 1192, ../scss/app.scss */
   header nav a {
     font-size: 1.4em;
     margin: 0 .8em 0 0;
     float: left;
     clear: both;
   }
-  /* line 1187, ../scss/app.scss */
+  /* line 1198, ../scss/app.scss */
   header nav.main {
     padding-left: 20px !important;
     width: 40% !important;
     float: left;
     margin-top: 0;
   }
-  /* line 1193, ../scss/app.scss */
+  /* line 1204, ../scss/app.scss */
   header nav.contact {
     width: 60% !important;
     margin-top: 2.7em;
     float: left;
   }
-  /* line 1197, ../scss/app.scss */
+  /* line 1208, ../scss/app.scss */
   header nav.contact a {
     font-size: 1.1em;
     float: left;
   }
-  /* line 1203, ../scss/app.scss */
+  /* line 1214, ../scss/app.scss */
   header a.home {
     left: auto;
     right: 0;
@@ -1419,23 +1431,23 @@ body.page-lapset section.menu a .img, body.page-koirat section.menu a .img, body
   margin: 0 auto;
   float: none !important;
 }
-/* line 1214, ../scss/app.scss */
+/* line 1225, ../scss/app.scss */
 body.page-lapset section.menu, body.page-koirat section.menu, body.page-haat section.menu, body.page-potretit section.menu, body.page-maailma section.menu {
   width: 50%;
   margin-left: 0;
   margin-right: 0;
   float: left;
 }
-/* line 1219, ../scss/app.scss */
+/* line 1230, ../scss/app.scss */
 body.page-lapset section.menu .img, body.page-koirat section.menu .img, body.page-haat section.menu .img, body.page-potretit section.menu .img, body.page-maailma section.menu .img {
   padding: 0;
 }
-/* line 1221, ../scss/app.scss */
+/* line 1232, ../scss/app.scss */
 body.page-lapset section.menu .img .shadow, body.page-koirat section.menu .img .shadow, body.page-haat section.menu .img .shadow, body.page-potretit section.menu .img .shadow, body.page-maailma section.menu .img .shadow {
   left: 0;
   right: 0;
 }
-/* line 1227, ../scss/app.scss */
+/* line 1238, ../scss/app.scss */
 body.page-lapset section.divider, body.page-koirat section.divider, body.page-haat section.divider, body.page-potretit section.divider, body.page-maailma section.divider {
   display: block;
   background-image: url(../img/sprites/curles2_black.png);
@@ -1446,27 +1458,27 @@ body.page-lapset section.divider, body.page-koirat section.divider, body.page-ha
   margin: 40px auto 10px;
 }
 
-/* line 1238, ../scss/app.scss */
+/* line 1249, ../scss/app.scss */
 body.page-lapset section.menu.lapset {
   display: none;
 }
 
-/* line 1243, ../scss/app.scss */
+/* line 1254, ../scss/app.scss */
 body.page-koirat section.menu.koirat {
   display: none;
 }
 
-/* line 1248, ../scss/app.scss */
+/* line 1259, ../scss/app.scss */
 body.page-haat section.menu.haat {
   display: none;
 }
 
-/* line 1254, ../scss/app.scss */
+/* line 1265, ../scss/app.scss */
 body.page-potretit section.menu.potretit {
   display: none;
 }
 
-/* line 1260, ../scss/app.scss */
+/* line 1271, ../scss/app.scss */
 body.page-maailma section.menu.maailma {
   display: none;
 }

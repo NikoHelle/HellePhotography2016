@@ -103,6 +103,7 @@ $image = $config->meta->siteUrl.$set->metaImage;
                <p>Niko Helle</p>
                <a href="mailto:" class="parse-data" data-p1="#niko#" data-p2="#.helle#" data-p3="#@#" data-p4="#hellephotography#" data-p5="#.com#">hellephotography.com</a>
                <p class="parse-data" data-p1="#0#" data-p2="#50 " data-p3="#3606 #" data-p4="#274#" data-p5="#">+358XXXXXXXXX</p>
+               <p>Studioni on Helsingissä, Kalasatamassa.<br/>Kuvaan toki myös pk-seudun ulkopuolella.</p>
            </div>
        </div>
        <div class="right" id="prices">

@@ -787,12 +787,12 @@ footer{
 
   .photographer{
     width:100%;
-    float: left;
+    float: right;
     background-image: url(../img/me.jpg);
     background-size: 100px auto;
-    background-position: 100% 50%;
+    background-position: 100% 0%;
     background-repeat: no-repeat;
-    padding-right: 120px;
+    max-width: 400px;
     a{
       color:#000;
       font-size: 1.3em;
@@ -800,6 +800,10 @@ footer{
       margin-bottom: 1em;
       display: inline-block;
     }
+    .parse-data{
+      padding-right: 110px;
+    }
+
   }
   p.copyright{
     width: 100%;
@@ -1158,9 +1162,16 @@ body{
     .photographer{
       background: none;
       padding-right: 0;
+      width: 90%;
+      max-width: 999px;
+      float: none;
+      margin: 0 auto;
       p,a{
         width: 100%;
         text-align: center;
+      }
+      .parse-data{
+        padding-right: 0;
       }
     }
   }
