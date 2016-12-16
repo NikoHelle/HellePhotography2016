@@ -45,6 +45,13 @@ $image = $config->meta->siteUrl.$set->metaImage;
       </script>
       <script async src='//www.google-analytics.com/analytics.js'></script>
       <!-- End Google Analytics -->
+      <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
+      <script type="text/javascript">
+          window.cookieconsent_options = {"message":"Käytämme sivustolla evästeitä käyttäjämäärien mittaamiseen. Käyttämällä sivustoa hyväksyt evästeiden käytön.","dismiss":"Hyväksyn","learnMore":"Lue lisää evästeistä.","link":"https://fi.wikipedia.org/wiki/Ev%C3%A4ste","theme":"dark-bottom"};
+      </script>
+
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+      <!-- End Cookie Consent plugin -->
   </head>
   <body class="page-<?=$set->id;?>">
    <header id="header">

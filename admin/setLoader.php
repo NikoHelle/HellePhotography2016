@@ -11,7 +11,6 @@
 </head>
 <body>
 <?php
-
 ini_set("display_errors",E_ALL);
 error_reporting(E_ALL);
 
@@ -32,18 +31,26 @@ $flickr = new FlickrHA($config->flickr->apiKey,$config->flickr->secret,$config->
 $flickrDB = new FlickrDB($flickr,$config->db);
 
 $setName = isset($_REQUEST["setName"]) ? $_REQUEST["setName"] : false;
+$startPos = isset($_REQUEST["startPos"]) ? $_REQUEST["startPos"] : 0;
+$perPage = 3;
 if(!$setName || !$config->sets[$setName]) die("no set");
 
-echo "<p>Delete old...</p>";
-$flickrDB->deleteSetPhotos($config->sets[$setName]->setId);
+if($perPage && $startPos==0){
+    echo "<p>Delete old...</p>";
+    $flickrDB->deleteSetPhotos($config->sets[$setName]->setId);
+
+}
 echo "<p>Getting images for set ".$setName."...</p>";
-
-
 
 #$setId = "72157663923690755";
 $json = $flickr->getSetPhotos($config->sets[$setName]->setId);
 $i = 0;
+$saveCount = 0;
 foreach ($json->photoset->photo as $photo){
+    if($perPage && $startPos>$i){
+        $i++;
+        continue;
+    }
     set_time_limit(20);
     echo "<div>";
     echo "<img src=\"".FlickrPhotoHA::getUrl($photo,FlickrPhotoHA::SIZE_SMALL_240_SHORT)."\" />";
@@ -59,11 +66,12 @@ foreach ($json->photoset->photo as $photo){
     echo("<p>Id:".$photo->id."</p>");
     echo("<p>originalSource:".$originalSource."</p>");
     echo("<p>xlSource:".$xlSource."</p>");
+    echo "<p>perPage:".$perPage."</p>";
+    echo "<p>saveCount:".$saveCount."</p>";
+    echo "<p>startPos:".$startPos."</p>";
     #$comments = $flickr->getPhotoComments($photo);
     $info = $flickr->getPhotoInfo($photo->id);
     $description = $info->photo->description;
-
-
 
     if(!$description){
         $description = "";
@@ -77,7 +85,7 @@ foreach ($json->photoset->photo as $photo){
         continue;
     }
 
-    #$i++;
+    $i++;
     #if($i>4){
      #   break;
     #}
@@ -88,9 +96,18 @@ foreach ($json->photoset->photo as $photo){
     $flickrDB->savePhoto($config->sets[$setName]->setId,$photo,$originalSource,$xlSource);
     //die("x");
     echo "</div>";
+    $saveCount++;
+    if($saveCount==$perPage){
+        break;
+    }
 }
-
+if ($saveCount==0){
+    die("ALL DONE");
+}
 ?>
+<script>
+    window.location.href="/admin/setLoader.php?setName=potretit&startPos=<?php echo ($startPos+$perPage);?>"
+</script>
 </body>
 </html>
 
